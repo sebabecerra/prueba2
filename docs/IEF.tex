@@ -1,0 +1,2548 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Informe de Estabilidad Financiera Primer Semestre 2020},
+  pdfauthor={Sebastian Becerra \& Nicolas Franz P.},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Informe de Estabilidad Financiera Primer Semestre 2020}
+\author{Sebastian Becerra \& Nicolas Franz P.}
+\date{2021-06-29}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{\textquotesingle{}bookdown\textquotesingle{}}\NormalTok{)}
+\CommentTok{\# or the development version}
+\CommentTok{\# devtools::install\_github("rstudio/bookdown")}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{Resumen}{%
+\chapter*{Resumen}\label{Resumen}}
+\addcontentsline{toc}{chapter}{Resumen}
+
+\textbf{\emph{Este ejemplo toma como base el IEF publicado por el BCCh el primer semestre de 2020. No hay informacion nueva, ambos docuemntos deben ser iguales. Cualquier error/omision contactar a \href{mailto:seba.becerra@gmail.com}{\nolinkurl{seba.becerra@gmail.com}}.}}
+
+\textbf{\emph{Desde marzo, el sistema financiero chileno ha enfrentado eventos de tensión
+de inusual magnitud asociados a la emergencia sanitaria global. En el sector
+financiero se ha observado alta volatilidad, pero no han ocurrido eventos de
+disrupción financiera importantes, en parte, gracias a la implementación de
+medidas excepcionales de liquidez. Así, desde el IEF previo se han materializado
+riesgos analizados en ediciones anteriores de este Informe y se ha elevado
+la probabilidad de ocurrencia de otros asociados. Esta es, en consecuencia,
+una coyuntura que pone a prueba los mecanismos de mitigación de shocks
+externos, las holguras acumuladas a través de los años, la resiliencia de las
+instituciones y la profundidad de los mercados financieros. Asimismo, demanda
+especial eficacia y coordinación de las políticas públicas}}
+
+\textbf{Desde marzo, la actividad económica global se ha deteriorado de forma drástica producto de la pandemia del Covid-19}.
+El avance en la propagación global del virus ha requerido medidas de distanciamiento
+social, que generaron la paralización repentina de actividades en diversos
+sectores económicos. Esto ha reducido de manera importante los ingresos de
+personas y empresas, generando serios problemas de flujo de caja que podrían
+afectar el cumplimiento de las obligaciones financieras, incluso de agentes
+plenamente solventes en una perspectiva de mediano plazo. Estos eventos,
+cuya duración es incierta, han afectado las decisiones de agentes financieros,
+quienes han disminuido su apetito por riesgo y re-balanceado sus portafolios
+de manera abrupta. Las expectativas de crecimiento para 2020 se deterioraron
+significativamente respecto de lo esperado a fines de 2019, anticipando una
+profunda recesión para este año. No obstante, dado su origen en un fenómeno
+epidemiológico, se espera que este sea un shock transitorio. Con ello, se
+anticipa que la actividad económica muestre signos de recuperación hacia
+fines de este año, respondiendo en parte a las medidas excepcionales que han
+implementado autoridades monetarias y fiscales alrededor del mundo. Entre
+éstas, se encuentran: significativas rebajas en las tasas de política monetaria,
+mayor provisión de liquidez al sistema financiero, paquetes fiscales e incentivos
+al crédito en apoyo a hogares y empresas, entre otras. Sin embargo, no es
+posible descartar un impacto económico más profundo y duradero que lo
+anticipado. En particular, podrían verse más afectados los países donde los
+espacios de política son limitados, o donde existen debilidades subyacentes que
+puedan amplificar el shock. Lo anterior, se suma a la incertidumbre respecto de
+la evolución futura de la pandemia
+
+\textbf{El menor apetito por riesgo global se ha reflejado en importantes ajustes de distintos precios de activos}. Desde febrero, los mercados
+bursátiles han presentado pérdidas y mayor volatilidad. Es así como el VIX llegó
+a superar los 80 puntos, el nivel más alto desde la crisis financiera global. Las
+tasas soberanas de economías avanzadas continuaron disminuyendo, mientras
+que las de mercados emergentes presentaron alzas pronunciadas en marzo,
+acumulando aumentos en torno a los 50 puntos base (pb), desde el último
+Informe. En tanto, las primas por riesgo soberano y los spreads corporativos se
+incrementaron cerca de 130pb y 100pb, respectivamente en igual lapso. Las
+materias primas perdieron valor: el cobre cayó 10\% mientras que el petróleo
+(Brent) lo hizo en 60\%, potenciado por el conflicto entre los principales
+productores. Lo anterior, sumado al alto endeudamiento externo de algunas
+de estas economías, aumenta los desafíos de la actual crisis económica. Los
+estímulos fiscales y monetarios en los países avanzados en respuesta a los
+eventos han sido mayores a los registrados durante la crisis financiera global,
+lo que ha contribuido a atenuar el deterioro en los mercados financieros. Así,
+durante las últimas semanas han revertido parte de las pérdidas registradas
+durante marzo.
+
+\textbf{Las condiciones financieras locales mostraron un deterioro desde el IEF anterior, exacerbado por ajustes de inversionistas institucionales, que balancearon sus portafolios hacia activos más líquidos}. Tal como
+se ha observado en otras economías, los spreads de bonos corporativos y
+bancarios en Chile aumentaron significativamente, con un incremento que fue
+más pronunciado para los de menor calidad crediticia. Esto se explicó por una
+mayor necesidad de liquidez de los agentes, lo que implicó una caída en el
+patrimonio de fondos mutuos (FM) tipo 3 y un aumento en el patrimonio del
+FM tipo 1, el cual superó los US\$22 mil millones. Esto se suma a los rescates
+de FM tipo 3 en el punto más álgido de las protestas sociales, buena parte de
+los cuales salieron del sistema de fondos mutuos. Por su parte, los fondos de
+pensiones han realizado movimientos importantes en su cartera de inversiones
+como producto de cambios más frecuentes y masivos entre multi-fondos por
+parte de sus afiliados. Finalmente, inversionistas no residentes ---a diferencia
+de lo ocurrido en octubre--- redujeron su participación en bonos soberanos,
+desde 20\% en diciembre a 18\% del stock disponible en febrero de este año.
+
+\textbf{La Comisión para el Mercado Financiero (CMF), el Ministerio de Hacienda y el Banco Central, implementaron un conjunto inédito de medidas, con el objeto de mitigar el impacto económico de la emergencia sanitaria}. Dado que los mercados financieros locales, mostraban
+algo de menor liquidez desde octubre de 2019, el BCCh implementó ---desde
+esa fecha--- una serie de medidas tanto en pesos como en dólares tendientes
+a inyectar recursos, las que luego se fueron ajustando al nuevo escenario. Es
+así como desde marzo se extendieron los programas de venta de dólares, de FX
+swap y de REPO, a lo que se sumó un programa de recompra de títulos de deuda
+del BCCh y la suspensión temporal del programa de emisiones de PDBC. Las
+nuevas medidas que se han agregado desde marzo buscan facilitar que hogares
+y empresas puedan hacer frente a la crisis, asi como otorgar flexibilidad a las
+instituciones financieras para acomodar sus impactos. En el ámbito regulatorio,
+el BCCh relajó sus normas de liquidez mientras que la CMF ajustó la normativa
+de provisiones por reprogramaciones de deudores vigentes con objeto de facilitar
+la postergación del pago de cuotas bancarias. Por su parte, el Ministerio de
+Hacienda aumentó significativamente las garantías estatales en sus programas
+FOGAPE y FOGAIN, realizó un aumento de capital para Banco Estado y promulgó
+legislación para la implementación de una línea de crédito especial (``Línea de
+crédito Covid-19'') a empresas para el financiamiento de capital de trabajo.
+Además, postergó el pago de algunos tributos, reduciendo a cero el impuesto de
+timbres y estampillas para operaciones de crédito por un período de seis meses, y
+promulgó una ley para proteger el empleo mediante el congelamiento temporal
+de la relación laboral. Por último, el BCCh implementó la Facilidad de Crédito
+Condicional al Incremento de las Colocaciones (FCIC), que entrega recursos a la
+banca para que esta pueda otorgar financiamiento a hogares y empresas. Al 11
+de mayo, a través de esta facilidad se habían inyectado al sistema bancario cerca
+de US\$14 mil millones, equivalentes a 9\% de la cartera de créditos de consumo
+y comerciales de fines de febrero. Las autoridades han buscado dar coherencia
+y complementariedad a las medidas adoptadas por cada una. Cabe señalar
+que, algunas de estas iniciativas están en plena implementación y requerirán
+un monitoreo permanente a fin de constatar que los bancos están cumpliendo
+el papel esperado y que el crédito esté llegando a los diferentes sectores. Esto
+implica también estar dispuestos a ajustar las políticas actuales o a implementar
+otras en la medida que la economía lo requiera.
+
+\textbf{Las medidas adoptadas han resaltado las fortalezas del sistema financiero chileno}. A pesar de la magnitud de los eventos que han afectado a
+la economía local, los impactos en los mercados locales han sido acotados. Esto
+sucede en un contexto donde los agentes tienen bajos niveles de dolarización,
+existe un régimen de tipo de cambio flexible y las expectativas de inflación
+a mediano plazo se encuentran firmemente ancladas. Sobre este marco, las
+políticas implementadas han apuntado a normalizar mercados financieros y a
+mitigar los problemas de liquidez. Con ello, los impactos de los eventos externos
+han sido absorbidos por el tipo de cambio sin generar mayores disrupciones en
+los agentes locales.
+
+\textbf{El negativo escenario económico se reflejará en un deterioro de la posición financiera de las empresas, limitando su capacidad de pago}. Al primer trimestre de 2020, la deuda total de las empresas alcanzó,
+en el agregado, 131\% del PIB. Esto representa un incremento respecto del
+IEF previo que se explica ---en gran medida--- por la depreciación del peso
+frente al dólar que revaloriza la deuda externa. Entre las firmas de mayor
+tamaño que reportan sus balances financieros a la CMF, una fracción necesitará
+financiamiento adicional para complementar su flujo de caja. Dado su tamaño
+relativo, estas empresas son relevantes en la generación de empleo, tienen
+numerosas relaciones comerciales con firmas de menor tamaño y su deuda
+bancaria es relevante dentro de los portafolios de los bancos. Dado que éstas
+se han financiado mayormente con bonos, tanto locales como externos, al
+cubrir sus nuevas necesidades sólo con crédito bancario podrían restar espacio
+a empresas de menor tamaño. A su vez, ciertas empresas cuya fuente de
+financiamiento principal ha sido la banca local, presentan vulnerabilidades
+previamente incubadas desde octubre de 2019 ---producto de las protestas
+sociales--- lo que eleva sus necesidades de financiamiento. Por ello resulta
+fundamental avanzar en la activación del mercado de bonos, para ampliar las
+fuentes de financiamiento para el sector corporativo.
+
+\textbf{La contracción de la actividad económica está materializando uno de los principales riesgos reportados en los IEF previos: el deterioro del mercado laboral}. Recientemente se ha observado un alza en la pérdida
+de empleos formales, tanto por necesidades de la empresa como por término
+de contratos, así como también una menor creación de nuevos empleos. Esto
+se da en un contexto en el que la deuda total de los hogares superaba 50\% del
+PIB al primer trimestre de 2020. Datos granulares de trabajadores asalariados
+que tienen deudas bancarias, dan cuenta que el deudor representativo tiene
+créditos de consumo e hipotecarios equivalentes a 5 veces su ingreso mensual,
+los que le generan una carga financiera sobre ingreso (RCI) de 24\%. Por su
+parte, la fracción de deudores vulnerables, es decir que tienen un RCI sobre
+40\%, se mantiene en 30\%. En este contexto, las medidas económicas que
+inciden sobre el ingreso disponible de los hogares, junto con ayudar en la
+mitigación de los efectos adversos de esta emergencia sanitaria, contribuyen
+a evitar episodios de impago. En particular, destacan la postergación de
+pago de contribuciones de bienes raíces y de cuentas de servicios básicos, la
+flexibilización para reprogramar y prorrogar créditos en cuotas, trasferencias
+directas a los ingresos y el programa de protección del empleo. Respecto de
+este último, al 8 de mayo más de 80 mil empresas habían ingresado solicitudes,
+lo que involucraba a más de 550 mil trabajadores. Éstos podrán acceder a las
+prestaciones del seguro de cesantía, que permitirán reducir el impacto negativo
+en sus ingresos, sin romper el vínculo laboral con sus empleadores.
+
+\textbf{La asignación de crédito presenta grandes desafíos en el actual escenario económico, donde la banca enfrenta los aumentos en el riesgo de crédito con menores holguras de capital}. Una contracción
+significativa de la actividad, como la planteada en el IPoM de marzo, producirá
+un deterioro en los indicadores financieros de la banca, debido al aumento en la
+morosidad. Esta contracción es similar a la considerada dentro de los escenarios
+de tensión usualmente utilizados para establecer la resiliencia de la banca.
+En este escenario, ningún banco queda por debajo de su límite regulatorio y
+aquellos con un IAC superior a 10\% representan cerca de 70\% del total de
+activos del sector. Estos resultados consideran que la implementación de las
+medidas de política señaladas previamente permite mitigar el impacto de la
+crisis, incluyendo una mayor actividad en la segunda mitad del año. En cambio,
+en un escenario de tensión severo, que involucra una recesión más profunda
+y prolongada, esta cifra se reduciría a 40\%. En este sentido, la disminución
+previa de holguras de capital y el uso intensivo de garantías como mitigador de
+riesgo de crédito, destacados en Informes anteriores, restringen la capacidad de
+la banca para enfrentar un mayor deterioro de la situación actual.
+
+\textbf{El presente Informe incluye un capítulo temático que describe la experiencia internacional y desarrollos en Chile de las políticas macroprudenciales}. Se identifican los arreglos y atribuciones institucionales,
+así como también las herramientas macroprudenciales comúnmente utilizadas.
+La experiencia de Chile en esta materia incluye la instauración de la nueva
+institucionalidad, establecida en la reforma a la Ley General de Bancos de 2019,
+que contempla la integración de la supervisión financiera y la responsabilidad
+del Banco Central de gestionar el colchón de capital contra-cíclico. Los avances
+observados en política macroprudencial, tanto a nivel internacional como local,
+han contribuido a mejorar la capacidad de las instituciones de cumplir con el
+objetivo de preservar la estabilidad financiera. Ello cobra especial relevancia en
+el contexto actual, en el que gran parte del marco de política macroprudencial
+está siendo puesto a prueba para enfrentar los riesgos relacionados con la
+pandemia.
+
+\textbf{En el actual contexto de crisis económica, la estabilidad del sistema financiero y el rol de las políticas públicas son elementos centrales}.
+Por una parte, el sistema financiero debe ser capaz de concentrarse en su rol
+de provisión de crédito. Para ello debe contar con un marco normativo claro y
+estable, como el que se ha configurado durante las últimas décadas incorporando
+en los mercados financieros las mejores prácticas internacionales. Por otra, las
+instituciones encargadas del diseño e implementación de las políticas públicas,
+enfrentan desafíos muy superiores a los habituales, en parte debido a lo inusual
+del escenario, así como por las interacciones entre los distintos agentes. Por
+ello, además del monitoreo y ajuste de las medidas ya en marcha, quedan áreas
+que requieren una atención especial. Entre estas, impulsar mecanismos que
+contribuyan al financiamiento de otros actores, como son ---por ejemplo--- los
+oferentes de crédito no bancario y las grandes empresas. Al mismo tiempo
+es crucial evitar normas desarticuladas y contradictorias que amenacen la
+estabilidad financiera. Para mitigar este riesgo será especialmente importante
+la coherencia entre las distintas medidas que se vayan implementando, así
+como también la colaboración entre todas las instituciones que participan del
+proceso legislativo y regulatorio. En lo que respecta al Banco Central, junto con
+asegurar la implementación de las medidas bajo su responsabilidad y contribuir
+al analisis de otras autoridades, éste buscará los mecanismos que fortalezcan
+la resiliencia de la economia en escenarios más adversos que el actual. Esto
+generará el espacio de política para adoptar nuevas medidas e instrumentos a
+la escala de las necesidades del país.
+
+\hypertarget{MFLE}{%
+\chapter*{I. TENDENCIAS EN MERCADOS FINANCIEROS Y EVENTOS EXTERNOS.}\label{MFLE}}
+\addcontentsline{toc}{chapter}{I. TENDENCIAS EN MERCADOS FINANCIEROS Y EVENTOS EXTERNOS.}
+
+Las disrupciones en la actividad económica a nivel global han afectado de
+forma importante los ingresos de hogares y empresas, situación que podría
+comprometer el cumplimiento de las obligaciones financieras de estos agentes.
+Por su parte, aún persiste incertidumbre respecto de la severidad y prolongación
+de la emergencia sanitaria, así como su impacto en la actividad económica.
+Estas menores perspectivas han ido acompañadas por una reversión abrupta del
+apetito por riesgo, lo que motivó correcciones significativas en la mayoría de los
+precios de activos. Estos eventos, han motivado importantes medidas por parte
+de bancos centrales y gobiernos de distintos países. Aún así, las perspectivas
+indican que el mundo entraría en recesión este año. No obstante, se prevé una
+recuperación más rápida que la observada en las crisis de origen financiero. En
+este ambiente de contracción del producto y acotada inflación global, las tasas
+de interés de largo plazo se han mantenido en niveles históricamente bajos
+para el mundo desarrollado, pero han aumentado para emergentes. Con todo,
+una crisis más duradera aparece como el principal riesgo a nivel global.
+
+\hypertarget{SFI}{%
+\section*{SITUACIÓN FINANCIERA INTERNACIONAL}\label{SFI}}
+\addcontentsline{toc}{section}{SITUACIÓN FINANCIERA INTERNACIONAL}
+
+Desde el último IEF, la detención progresiva de las actividades
+productivas debilitó las perspectivas de crecimiento en las principales
+economías del mundo. Con ello, el escenario base de crecimiento
+global incorpora una recesión para el 2020, con una recuperación
+hacia el 2021.
+La inesperada e intensa emergencia sanitaria que se desencadenó con el brote
+del Covid-19 ha cambiado abruptamente el escenario global: se observó una
+violenta caída en la actividad mundial y una fuerte reacción en los mercados
+financieros. Con ello, las estimaciones para el crecimiento global se corrigieron
+significativamente a la baja desde el último IEF. Así, mientras el IPoM de
+septiembre pasado anticipaba un crecimiento mundial de 2,9\% para el 2020,
+el IPoM de marzo de este año proyectaba una caída de 0,2\% del PIB mundial
+en el mismo año. Proyecciones posteriores han considerado caídas aún mayores
+de actividad para todas las economías, cuya profundidad y duración dependerá
+de cómo se siga desarrollando el escenario de control de la pandemia, en
+particular las decisiones sobre flexibilización de las normas de confinamiento en
+los países que están más avanzados en la evolución de la emergencia sanitaria.
+Dado este contexto, el FMI proyectó una contracción mundial de 3\% para el
+2020 y una recuperación cercana al 5,8\% para el 2021, indicando que ésta
+probablemente sería la mayor recesión experimentada por la economía global desde la gran depresión (WEO, abril 2020). En particular, las proyecciones
+del FMI consideran que Estados Unidos tendría una caída de 5,9\%, la Zona
+Euro de 7,5\%, Reino Unido de 6,5\% y Japón de 5,2\% (gráfico I.1). Una de
+las consecuencias esperadas de este shock en la actividad es un incremento
+significativo en el desempleo y caída en los ingresos de los hogares. En Estados
+Unidos, las solicitudes de seguro de desempleo mostraron sucesivas alzas,
+superando ampliamente otros eventos de estrés en la historia. Específicamente,
+desde la penúltima semana de marzo hasta fines de abril, se registraron más
+de 30 millones de solicitudes. Por su parte, en la Zona Euro, aunque algunos
+gobiernos ya han empezado a reducir los grados de distanciamiento social, no
+existe claridad respecto de cuándo se retomarían las actividades productivas en
+países donde se han impuesto medidas rígidas de confinamiento. Con todo, la
+implementación más rápida y de mayor magnitud de mecanismos de provisión
+de liquidez por parte de bancos centrales, así como de los significativos planes
+de estímulos fiscales, dan sustento a que la recuperación se materialice hacia el
+2021, considerando la experiencia de crisis previas.
+
+Tasa de crecimiento del PIB, principales economías(porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+Fuente: Fondo Monetario Internacional.
+
+\textbf{Las tasas de interés de largo plazo de economías avanzadas disminuyeron desde el IEF anterior.}
+
+Las tasas de interés de bonos soberanos para economías desarrolladas
+mantuvieron la tendencia a la baja desde el IEF anterior, aunque con una mayor
+volatilidad en lo más reciente. A su vez, en la mayor parte de las economías
+emergentes se observaron alzas pronunciadas en las tasas de bonos soberanos,
+así como un aumento en las primas por riesgo. De esta manera, desde el cierre
+estadístico del IEF anterior, las tasas de los bonos soberanos para países
+desarrollados disminuyeron 43pb en promedio. En particular, la tasa del bono
+del tesoro alemán a 10 años se mantuvo en niveles negativos e históricamente
+bajos (gráfico I.2). Por su parte, la tasa a 10 años del bono soberano de Estados
+Unidos experimentó el mayor descenso dentro de este grupo de economías,
+con una caída de 1,2pp al cierre estadístico de este IEF, lo que se explicaría por
+una búsqueda de refugio por parte de inversionistas en medio de las fuertes
+caídas y alta correlación que presentaron los precios de los activos riesgosos,
+además de los significativos estímulos monetarios anunciados. En contraste,
+las tasas soberanas de economías emergentes aumentaron significativamente
+desde el último IEF (detallado más adelante).
+
+Tasas de interés de bonos soberanos a 10 años(porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+Fuente: Bloomberg.
+
+\textbf{Los mercados bursátiles mostraron fuertes caídas en el año, mientras que las medidas de volatilidad de activos financieros se incrementaron, gatilladas por una reversión significativa del apetito por riesgo.}
+
+Los mercados bursátiles globales presentaron fuertes ajustes a la baja desde
+fines de febrero, dada la paralización de las economías y la incertidumbre
+respecto de su reapertura (gráfico I.3). Por ejemplo, el S\&P 500 cayó más de
+34\% en un mes de transacciones, lo que corresponde a más de la mitad de todo
+lo perdido en los momentos de peor desempeño durante la crisis financiera
+global (WEO, abril 2020). Asimismo, las relaciones precio-utilidad en algunos
+mercados bursátiles registraron fuertes descensos. La posterior estabilización
+en dichos mercados coincide con los esfuerzos de las autoridades en contener
+los efectos de la emergencia sanitaria, que se detallan más adelante en este
+capítulo. Por su parte, los spreads de bonos corporativos para economías
+desarrolladas aumentaron, en un contexto de una mayor probabilidad de
+rebajas de ratings para algunos de estos instrumentos de deuda (tabla I.1). Este
+incremento alivia la compresión que se venía registrando, por lo cual reduce
+el riesgo de dicho ajuste. Sin embargo, la materialización de tales rebajas
+podría gatillar reacomodos en los portafolios de inversionistas institucionales,
+generando potenciales impactos por revalorización.
+
+Índices bursátiles (*)(índice: 01.Ene.2020=100)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+(*) Los índices corresponden a EEUU: S\&P 500; Alemania: DAX; Reino Unido: FTSE100; Chile: IPSA; China: Shanghai Composite.
+Fuente: Bloomberg.
+
+La volatilidad global en los mercados cambiario, de renta fija y bursátil
+aumentó de manera significativa como consecuencia de la incertidumbre
+acerca de los impactos económicos que traería consigo la pandemia (gráfico
+I.4). En particular, se registró una depreciación generalizada de monedas frente
+al dólar estadounidense, mientras se observaron fuertes caídas en el valor de
+las materias primas.
+
+Volatilidades implícitas (*)(índice)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+(*) VIX: volatilidad implícita en opciones de S\&P 500 a un mes. VXY G7: índice de volatilidad monedas G7.; TYVIX: índice de volatilidad para la Bono a 10 años del tesoro estadounidense.
+Fuente: Banco Central de Chile en base a información de Bloomberg.
+
+Todo lo anterior se ha dado en un contexto en el que inversionistas han
+buscado refugiarse en activos de mayor calidad crediticia. Estos cambios en el
+apetito por riesgo son particularmente desfavorables para empresas con alto
+endeudamiento, especialmente las del segmento high yield (bonos, leveraged
+loans, entre otros), lo que las hace más vulnerables ante el shock actual.
+
+\textbf{El deterioro de la situación macroeconómica motivó importantes inyecciones de liquidez por parte de los principales bancos centrales del mundo desarrollado.}
+
+El cambio de escenario base se ha materializado en caídas transversales y
+abruptas en los precios de distintos tipos de activos, producto de la reversión
+en el apetito por riesgo. Los bancos centrales alrededor del mundo ---incluido
+Chile--- han implementado una serie de estímulos, incluyendo aumentos
+agresivos del impulso monetario ---llevando las tasas de interés de política
+monetaria, que ya se encontraban en niveles históricamente bajos, a
+aproximarse rápidamente a su mínimo técnico (gráfico I.5)---, compras de
+activos (gráfico I.6) y provisiones de liquidez a los mercados, además de extender
+líneas de crédito para entidades financieras, con el fin de evitar disrupciones en las cadenas de pago y aliviar presiones en distintos mercados financieros
+(Recuadro III.1). En particular, en sus reuniones excepcionales del 3 y 16 de
+marzo, la Reserva Federal de Estados Unidos (Fed) redujo de manera preventiva
+la Federal Funds Rate en 50 y 100pb respectivamente, el mayor recorte desde
+el 2008, situando el rango meta en 0-0,25\%, señalando como antecedentes
+principales los riesgos que la pandemia impone para el sector real.
+
+Cambios en tasas de interés de política monetaria (*)(puntos base)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+(*) Área sombreada corresponde a mercados emergentes, según clasificación del MSCI.
+Fuente: BIS.
+
+Adicionalmente, la Fed anunció que aumentará sus tenencias de bonos del
+tesoro en al menos US\$500.000 millones, así como de bonos hipotecarios
+securitizados en al menos US\$200.000 millones. Por último, también dispuso
+de líneas preferenciales, para que bancos financien pequeñas empresas con
+respaldo del gobierno, por hasta US\$600.000 millones. Por su parte, en la
+reunión de política monetaria de marzo, el Banco de Inglaterra mantuvo la tasa
+de referencia en 0,1\%, en un contexto de incertidumbre acerca de la evolución
+de la economía real y efectos de la pandemia en el mercado del trabajo.
+Esta decisión se sumó a las medidas tomadas por dicha entidad respecto de
+facilidades de liquidez para bancos comerciales. En el caso de Europa, el Banco
+Central Europeo (BCE) mantuvo las tasas de depósitos en -0,5\% y anunció un
+nuevo programa de compra de activos por 750.000 millones de euros durante
+el 2020. Este programa se suma a las compras mensuales de activos ya en
+régimen y amplía la gama de activos elegibles.
+
+\textbf{En las economías emergentes ---a excepción de China---, las tasas soberanas presentaron aumentos relevantes, mientras las monedas se depreciaron significativamente frente al dólar. Lo anterior, en un contexto de mayor volatilidad y caídas en los precios de las materias primas.}
+
+Activos totales de bancos centrales(billones de dólares)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+Fuente: Federal Reserve Economic Data.
+
+En los últimos meses, las economías emergentes se han visto enfrentadas a
+diversos shocks. A los efectos directos de la pandemia, cuyas consecuencias
+dependerán de factores idiosincráticos, se suman: la disminución del precio
+de materias primas, el aumento de la aversión al riesgo, así como también,
+las perspectivas de una recesión global. En este contexto, la mayoría de las
+tasas soberanas de economías emergentes de largo plazo aumentaron de
+manera significativa desde el último IEF, cuando se destacaba la trayectoria
+a la baja de gran parte de ellas (gráfico I.7). Con todo, se observó un fuerte
+incremento en la volatilidad de estas tasas. En Chile también se observó un
+aumento marginal de sus tasas, recuperando con ello la menor volatilidad
+relativa a otras economías emergentes, luego de los efectos que tuvieron las
+protestas sociales de finales del año pasado sobre las mismas (gráfico I.8). Por
+su parte, la volatilidad de la paridad peso-dólar estuvo en la parte alta de la
+distribución, luego de aumentar muy por sobre países comparables a finales de
+2019, aunque ha tendido a disminuir en los últimos días, situándose por debajo
+de la mediana de la muestra de economías emergentes. Estos movimientos son
+coherentes con el marco de flexibilidad cambiaria (gráfico I.9).
+
+Tasas soberanas a 10 años(porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de Bloomberg.
+
+Volatilidad de tasas soberanas a 10 años EME (*)(puntos base)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+(*) Calculado como la desviación estándar del cambio diario en las tasas. EME incluye a Brasil, China, Colombia, Hungría, India, Indonesia, Malasia, México, Perú, Polonia, Rusia y Turquía.
+Fuente: Banco Central de Chile en base a información de Bloomberg.
+
+Dentro de los menores precios de las materias primas, destacó la dinámica del
+precio del petróleo, que alcanzó valores negativos a mediados de abril debido a
+un exceso de oferta, copando la capacidad de almacenamiento. A este evento
+se suma el conflicto entre productores de petróleo acerca de las cuotas de
+reducción de producción entre países de la OPEP, Rusia y otros productores
+relevantes, fricción que contribuyó a la mayor volatilidad en el precio. Por su
+parte, el nivel del EMBI de Latinoamérica (Latam) aumentó notoriamente con
+relación al IEF anterior, destacando una mayor sincronía de estos indicadores
+en los últimos meses (gráfico I.10). Lo anterior da cuenta de lo generalizado del
+shock, así como de las mayores vulnerabilidades de este grupo de países. Estos
+impactos, por ahora acotados, podrían incrementarse en aquellas economías
+que hubieran acumulado vulnerabilidades de forma significativa en los años
+previos.
+
+Volatilidad anualizada cambiaria EME (*)(porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+(*) EME incluye a Brasil, China, Colombia, Hungría, India, Indonesia, Malasia, México, Perú, Polonia, Rusia y Turquía. Commodity exporters incluye a Australia, Canadá, Noruega y Nueva Zelanda.
+Fuente: Banco Central de Chile en base a información de Bloomberg.
+
+EMBI (*)(puntos base)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+(*) Información mensual.
+Fuente: Banco Central de Chile en base a información de Bloomberg.
+
+\textbf{Desde el IEF anterior se observó una fuerte salida de flujos de capitales desde economías emergentes.}
+
+En China, al igual que en el resto del mundo, las perspectivas macroeconómicas
+para el 2020 se deterioraron de forma importante, lo que se refleja incluso
+en algunos indicadores más recientes. En particular, en el primer trimestre de
+este año China anotó su primera contracción desde 1976, donde la producción
+industrial cayó en promedio un 9,4\%. En tanto, las economías emergentes de
+Europa han reducido sus estimaciones de crecimiento, con expectativas cercanas
+a -5,2\% para el 2020. Con todo, se espera que los mercados emergentes y en
+vías de desarrollo se contraigan cerca de un 1\% (IMF, DataMapper). Lo anterior
+ha propiciado flujos de salida de capitales desde estas economías por parte de
+no-residentes por más de US\$100.000 millones desde enero, lo que presionaría
+a los agentes en el servicio de sus deudas (GFSR, abril 2020, gráfico I.11).
+
+Flujos de portafolio a economías emergentes (*)(miles de millones de dólares)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+(*) Frecuencia trimestral en base a información mensual.
+Fuente: IIF.
+
+En el caso de Chile, los pasivos de portafolio en renta fija crecieron de forma
+significativa durante el primer trimestre del año (gráfico I.12). Sin embargo,
+información adicional permite establecer que esto se debe a un aumento
+sustantivo de emisiones de bonos en el exterior por parte de empresas durante
+los meses de enero y febrero, observándose en lo más reciente una disminución
+de los flujos de portafolio. En efecto, datos en alta frecuencia del Emerging
+Portfolio Fund Research (EPFR) indican que la salida reciente por parte de noresidentes de ciertos fondos es la más alta desde que hay datos disponibles: en
+las tres semanas posteriores a la detección del primer contagiado de Covid-19
+en el país, se acumuló una salida igual que todo lo acumulado durante el Taper
+Tantrum (gráfico I.13).
+
+Flujos de portafolio a Chile (1)(porcentaje del PIB)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+(1.) Datos a marzo 2020 son preliminares.
+(2.) Incluye préstamos bancarios, créditos comerciales, monedas, depósitos y otros pasivos.
+Fuente: Banco Central de Chile.
+
+Flujos Semanales de portfolio de no residentes en Chile(porcentaje del stock de pasivos de portfolio al inicio de cada período, semanas desde el inicio del shock) (*)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+(*) Se toman las siguientes fechas como punto de partida para cada shock: semana del 28 de agosto al 3 de septiembre del 2008 para la crisis financiera global; semana del 16 al 22 de mayo del 2015 para el Taper Tantrum; semana del 27 de febrero al 4 de marzo para Covid-19.
+Fuente: IIF.
+
+Las salidas de capitales de portafolio que se han observado en los últimos
+meses por parte de no-residentes desde mercados emergentes se han dado
+de forma generalizada por varias semanas. Dicho escenario configura un
+riesgo para la estabilidad financiera de las economías afectadas por cuanto
+puede dificultar el financiamiento del déficit de sus cuentas corrientes. En este
+contexto, la posición financiera externa y las condiciones macroeconómicas
+locales de Chile siguen siendo favorables para enfrentar la reversión de flujos
+de capitales observada en lo más reciente. Estos factores, junto a un marco de
+política de metas de inflación y régimen de tipo de cambio flexible, contribuyen
+a la mitigación de los efectos adversos de reversiones de capitales extranjeros
+(Recuadro I.1).
+En resumen, la emergencia sanitaria generada por el Covid-19 ajustó a la
+baja las expectativas de crecimiento mundial, y con ello materializó uno de los
+principales riesgos destacado en IEF anterior: una reversión global en el apetito
+por riesgo. Si bien esta reversión generó una caída transversal en el precio
+de los activos, la intensidad de dichas caídas fue mayor en el caso de activos
+con mayor riesgo relativo. En este contexto, los bancos centrales de economías
+desarrolladas realizaron importantes inyecciones de liquidez. Hacia adelante,
+se mantiene la incertidumbre, tanto respecto a la evolución de la pandemia
+como de su impacto en la actividad económica. De esta forma, dimensionar la
+profundidad y la duración de la crisis, así como la efectividad de las políticas
+implementadas, representan un importante desafío en el corto plazo.
+
+\hypertarget{SFL}{%
+\section*{SITUACIÓN FINANCIERA LOCAL}\label{SFL}}
+\addcontentsline{toc}{section}{SITUACIÓN FINANCIERA LOCAL}
+
+\textbf{Desde el IEF anterior, el escenario económico interno se ha deteriorado, producto de la suspensión de actividades económicas.}
+
+Tal como se detalla en el comunicado de la Reunión de Política Monetaria del
+BCCh al 6 de mayo, la caída del Imacec de marzo estuvo en línea con el panorama
+descrito en el IPoM de marzo, ratificando el inicio del proceso de contracción
+económica provocado por la emergencia sanitaria. El impacto negativo de
+lo que ha conllevado esta crisis se ha visto especialmente en actividad del
+comercio, educación, transporte, restaurantes y hoteles. Respecto del mercado
+del trabajo, la encuesta de empleo del INE, los datos de registros administrativos
+y el Informe de Percepción de Negocios apuntan a un importante deterioro,
+amortiguado en parte por las medidas especiales adoptadas por el gobierno.
+Las expectativas de consumidores y de empresarios se han deteriorado, tanto
+por caídas drásticas de consumo de bienes no esenciales como por caída de la
+inversión, ratificada por la ralentización de proyectos hacia los próximos años y
+fuerte retroceso de las importaciones de capital.
+
+\textbf{En este contexto, las tasas de interés locales, tanto en UF como en pesos, presentaron alzas en la última parte de 2019 y principios de 2020, aunque disminuyeron en lo más reciente.}
+
+Desde el IEF anterior, y al igual que en otros países, el deterioro de la actividad
+económica local gatilló ajustes en el apetito por riesgo, con sus consecuentes
+efectos sobre los precios de los activos. Las tasas de interés locales, que
+registraron alzas a fines de 2019, mostraron disminuciones este año. En
+particular, las tasas a 5 años disminuyeron 61pb respecto de fines del año
+pasado, mientras que las a 10 y 20 años lo hicieron en promedio en 15pb. En
+tanto, las tasas en pesos disminuyeron en promedio en 60pb para el plazo de 5
+años y en 25pb para el plazo de 10 años en el mismo periodo, y se mantienen
+cercanas a mínimos en una perspectiva histórica (gráfico I.14).
+
+Tasas de interés soberanas locales(puntos base)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+Fuente: Banco Central de Chile.
+
+Durante los primeros meses del año, previo a la pandemia, se observó un
+dinamismo mayor en las emisiones primarias de bonos fundamentalmente de
+emisiones externas, principalmente de empresas, lo que se debería en parte a
+motivos precautorios, dado el riesgo de una reactivación de las turbulencias
+políticas y sociales (anexo estadístico). A su vez, y dado el clima de mayor
+riesgo financiero, los spreads corporativos y bancarios han aumentado
+significativamente luego de haber corregido en algo el alza tras el 18 de octubre
+(gráfico I.15). Por banco, las caídas en las tasas de depósitos del mercado secundario han sido generalizadas. Sin embargo, su spread medido respecto
+a la tasa swap en pesos aumentó fuertemente en marzo. Esta situación se
+revirtió en la medida que las disminuciones en tasas de referencia se fueron
+traspasando hacia otros instrumentos.
+
+Spreads de Bonos Bancarios y Corporativos
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de la BCS.
+
+\textbf{Desde el IEF anterior, se han registrado importantes cambios de portafolio en inversionistas institucionales, que reflejan la preferencia por activos de mayor liquidez, menor riesgo y duración.}
+
+Desde el IEF anterior, se registraron movimientos significativos en los patrimonios
+de los Fondos Mutuos (FM). En particular, los FM tipo 1 (FM1) continuaron
+aumentando, alcanzando más de 660 millones de UF, lo que corresponde a un
+aumento de 22\% (gráfico I.16). Por su parte, los FM tipo 3 (FM3) registraron
+una importante caída, motivada por rescates masivos desde octubre pasado,
+lo que ha significado un menor patrimonio de 144 millones de UF, equivalente
+a una caída de 37\% en su patrimonio para el mismo período. Esto se puede
+entender como una liquidación de fondos con alto riesgo de tasa y crédito
+(FM3), en un entorno de alta volatilidad y estrés en precios de instrumentos de
+renta fija. Sin embargo, los movimientos hacia fondos monetarios (FM1) dan
+cuenta de la necesidad de los agentes de aumentar su liquidez para enfrentar
+el deterioro de la actividad económica.
+
+Patrimonio de Fondos Mutuos(millones de UF)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de CMF y AAFM.
+
+Cabe destacar que entre octubre y diciembre de 2019, los FM3 sufrieron
+fuertes retiros de fondos por partes de sus partícipes, que en el momento más
+álgido de la crisis llegó a representar en un mes cerca de 14\% del patrimonio, e
+incluso en la semana más crítica hasta 7\%, cifras que corresponden al percentil
+1 de la distribución histórica de retiros, que significaron ventas masivas de
+instrumentos. En dicho escenario el traspaso a FM1 fue mucho más acotado
+por lo que los recursos salieron del sistema de fondos mutuos.
+Por tipo de activo dentro de los fondos mutuos, desde fines de octubre
+la mayor disminución se dio en bonos bancarios, con una caída de más de
+140 millones de UF, seguido de bonos soberanos, con más de 50 millones
+de UF, y bonos corporativos, con 36 millones de UF. Estas caídas se dieron
+mayormente entre octubre y diciembre pasado. En contraste, la búsqueda de
+refugio significó un aumento de más de 150 millones de UF en igual período
+(gráfico I.17). Lo anterior puso presión adicional al mercado de renta fija
+doméstica, contribuyendo al alza observada en los spreads de bonos bancarios
+y corporativos desde octubre en adelante (gráfico I.15).
+
+Cambio en stock de activos sistema Fondos Mutuos(millones de UF)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-20-1.pdf}
+
+Fuente: Banco Central de Chile en base a información del DCV.
+
+Por su parte, desde octubre del año pasado los Fondos de Pensiones se
+han caracterizado por cambios relevantes en sus portafolios. Así, durante
+noviembre de 2019 registraron ventas netas por casi US\$4.000 millones en
+bonos soberanos domésticos, en parte absorbidas a través de la ventanilla
+de compras que dispuso el Banco Central. Además, registraron compras y
+ventas de activos en el exterior, alternadamente en distintos meses, las que
+han alcanzado montos en torno a los US\$3.000 millones. En lo más reciente,
+destacaron las ventas de depósitos a plazo en torno a US\$2.500 millones
+(gráfico I.18). Estos ajustes han sido influenciados por movimientos masivos
+de afiliados entre multi-fondos, motivados, en parte, por recomendaciones
+de asesores previsionales que se encuentran fuera del perímetro regulatorio.
+
+Flujos de inversión de los fondos de pensiones (*)(miles de millones de dólares)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+(*) Corresponde a los movimientos netos por instrumento incorpora compras, ventas, rescates, sorteos. No incluye vencimientos derivados, rebates, dividendos y cortes de cupón. Incluye bonos y ADR nacionales transados en el extranjero.
+Fuente: Banco Central de Chile en base a información de la Superintendencia de Pensiones.
+
+Dichas recomendaciones han aumentado significativamente su frecuencia en
+los últimos meses, elevando la volatilidad en algunos mercados, por lo que
+podrían tener efectos sobre la estabilidad financiera (Recuadro V.1).
+Finalmente, las Compañías de Seguros de Vida (CSV) han aumentado su
+exposición a bonos privados, mientras que su posición de bonos externos se
+mantiene relativamente similar. En particular, una menor actividad de rentas
+vitalicias en los últimos meses podría estar sumando algo de presión de liquidez
+en algunas compañías.
+
+\textbf{Rebajas adicionales en calificaciones crediticias de bonos privados por debajo de ``grado de inversión'' podrían tener un impacto significativo sobre los inversionistas institucionales locales.}
+
+En lo que va de 2020, el volumen de bonos clasificados como investment grade
+que ha sido rebajado a high yield ya superó el mayor registro histórico, visto
+durante la crisis financiera global. Asimismo, estimaciones de bancos privados
+sugieren que, en los próximos meses, los bonos fallen angel1/ en mercados
+internacionales se incrementarían en poco más de US\$550.000 millones, lo
+que representa un 15,7\% del total de instrumentos de deuda con calificaciones
+BBB+, BBB y BBB- o 2\% de bonos con calificación grado de inversión.
+Lo anterior, tendría algunos efectos sobre la cartera de inversiones de
+inversionistas institucionales locales. En particular, el 3,5\%, 3,8\% y 8,1\% de la
+cartera de inversiones de bancos, fondos de pensiones y compañías de seguros
+de vida, respectivamente, poseen instrumentos de renta fija en el exterior con
+ratings clasificados entre BBB+ y BBB-, lo cual totaliza US\$13.850 millones
+expuestos a este potencial shock (tabla I.2).
+Aun cuando en general existen holguras para este tipo de instrumentos y
+flexibilidad respecto al tratamiento de los excesos sobre los límites establecidos,
+en el caso de las CSV, el marco normativo vigente es algo más restrictivo. En el
+caso de estos inversionistas, una rebaja de ratings ---asumiendo el parámetro
+previo donde 15,7\% de los bonos caería bajo ``grado de inversión''--- significaría
+un aumento en la exposición de bonos high yield desde 4,5 hasta 5,8\% de su
+cartera (US\$3.492 millones). Sin embargo, las inversiones en instrumentos de
+deuda en el exterior con clasificación inferior a BBB están sujetas a un límite de
+5\% de las reservas técnicas y el patrimonio en riesgo de las CSV.
+De este modo, algunas CSV con menor holgura podrían tener que liquidar
+ciertas posiciones, en el caso de requerir activos representativos para constituir
+reservas2
+/. Tales liquidaciones podrían implicar pérdidas para las compañías, al
+vender los bonos a tasas más altas a las que están registradas en sus portafolios,
+y también producto que deberían reconocer pérdidas en los contratos de
+cobertura (cross currency swaps) vinculados a estos bonos.
+
+\textbf{La Comisión para el Mercado Financiero, el Ministerio de Hacienda y el Banco Central, implementaron un conjunto inédito de medidas, con el objeto de mitigar el impacto económico de la emergencia sanitaria.}
+
+Los mercados financieros locales reflejaban algo de menor liquidez desde
+octubre de 2019, por lo que el BCCh implementó, desde esa fecha, una serie
+de medidas tanto en pesos como en dólares tendientes a inyectar recursos.
+Entre las principales se encuentran: la extensión de los programas de venta de
+dólares, de FX swap y de REPO, un programa de recompra de títulos de deuda
+del BCCh y la suspensión temporal del programa de emisiones de PDBC.
+A estas medidas se han agregado nuevas, donde unas buscan facilitar que
+hogares y empresas puedan hacer frente a la crisis, mientras otras otorgan
+flexibilidad a las instituciones financieras para acomodar sus impactos (tabla
+I.3). En primer lugar, el BCCh relajó sus normas de liquidez mientras que la CMF
+ajustó la normativa de provisiones por renegociaciones de deudores vigentes,
+esto con objeto de facilitar la postergación del pago de cuotas bancarias. Por
+su parte, el Ministerio de Hacienda aumentó significativamente las garantías
+estatales en sus programas FOGAPE y FOGAIN, realizó un aumento de capital
+para Banco Estado y se promulgó legislación para la implementación de una
+línea de crédito especial (``Línea de crédito Covid-19'') a empresas para el
+financiamiento de capital de trabajo. Además, implementó la postergación del
+pago de algunos tributos, reduciendo a cero el impuesto de timbres y estampillas
+para operaciones de crédito por un período de seis meses, y promulgó una ley
+de busca proteger el empleo a través del congelamiento temporal de la relación
+laboral.
+
+Por último, el BCCh implementó la Facilidad de Crédito Condicional al
+Incremento de las Colocaciones (FCIC), que entrega recursos a la banca para
+que esta pueda otorgar financiamiento a hogares y empresas. Al cierre de este
+Informe, a través de esta facilidad se habían inyectado al sistema bancario
+US\$13.706 millones (Recuadro III.1).
+En resumen, en un contexto de deterioro de la actividad económica, mayores
+requerimientos de liquidez y un menor apetito por riesgo, se observaron
+aumentos de los spreads tanto de bonos bancarios como corporativos. La
+demanda por parte de los inversionistas se ha centrado en activos líquidos,
+de bajo riesgo y corta duración. Dentro de los movimientos de inversionistas
+institucionales se destaca la alta volatilidad de portafolios de Fondos de
+Pensiones, amplificado por cambios abruptos y coordinados de afiliados entre
+multi-fondos. De la misma manera, se perciben cambios de composición de
+los portafolios administrados por los FM, lo que amplifica y pone presión a
+los precios en mercados financieros. Por su parte, rebajas en calificaciones
+crediticias de bonos externos podrían tener un impacto relevante sobre
+los inversionistas institucionales locales. En este contexto, la Comisión
+para el Mercado Financiero, el Ministerio de Hacienda y el Banco Central,
+implementaron un conjunto inédito de medidas, con el objeto de mitigar el
+impacto económico de la emergencia sanitaria.
+
+\hypertarget{AEEF}{%
+\section*{AMENAZAS EXTERNAS PARA LA ESTABILIDAD FINANCIERA}\label{AEEF}}
+\addcontentsline{toc}{section}{AMENAZAS EXTERNAS PARA LA ESTABILIDAD FINANCIERA}
+
+\textbf{La prolongación y profundización del shock económico asociado a Covid-19 configura el mayor riesgo para la estabilidad financiera.}
+
+Actualmente, no existe claridad a nivel global respecto de la duración de las
+actuales medidas de confinamiento tomadas para aminorar el contagio del
+Covid-19. En caso de que dichas medidas se levanten, tampoco es claro si se
+tendrán que reanudar en el futuro ante una nueva ola de contagios. De esta
+forma, una prolongación de la suspensión de actividades económicas podría
+golpear fuertemente a firmas que tengan bajos niveles de liquidez y elevado
+endeudamiento, para las cuáles el financiamiento vía deuda bancaria o bonos
+aparece más difícil de conseguir.
+En el caso de Chile, una mayor persistencia del shock económico actual podría
+llevar a que los problemas de liquidez que enfrentan las firmas actualmente se
+transformen en problemas de solvencia, con serias implicancias para los flujos
+de crédito, la capacidad de producción y el empleo (Capítulo II). De ocurrir, los
+problemas de solvencia podrían generar pérdidas relevantes para los bancos. Si
+bien el sistema bancario está en una buena posición de solvencia, cabe señalar
+que el tamaño del shock es sustantivamente mayor a lo registrado en crisis
+previas (Capítulo III). Por lo anterior, resultan de extrema relevancia las políticas
+económicas que se están implementando para mitigar estos impactos, y con
+ello preservar la estabilidad financiera (tabla I.3 y Capítulo V).
+
+\textbf{Una profundización del menor apetito por riesgo podría intensificar las salidas de capitales desde economías emergentes.}
+
+En este sentido, cabe señalar que Chile tiene una posición externa favorable,
+basada en un conjunto de elementos. En primer lugar, gran parte de los
+pasivos externos se clasifican como IED, mientras que en los pasivos externos
+de portafolio predomina el componente de renta fija. El incremento de este
+componente en los últimos años ha estado motivado por el mayor apetito
+de no-residentes por deuda soberana, que ha ganado participación en este
+activo, aun cuando gran parte de los tenedores continúan siendo fondos de
+pensiones locales. Como se ha mencionado en IEF previos, estos agentes
+actúan como mitigadores ante shocks externos, haciendo que la volatilidad
+de las tasas de interés de largo plazo sea relativamente baja en relación otros
+países emergentes. En segundo lugar, el régimen de flexibilidad cambiaria,
+implica que los shocks externos se absorben por cambios en la paridad y
+no afectan el costo de financiamiento de largo plazo en moneda local. En
+efecto, las sucesivas depreciaciones han sido absorbidas por otros agentes
+de la economía, sin grandes repercusiones sobre sus balances, en parte dado
+que los agentes locales tienen una exposición acotada al riesgo cambiario.
+En particular, los hogares no utilizan créditos en moneda extranjera para
+financiar sus viviendas o necesidades de consumo. El gobierno, por su parte, es
+superavitario en moneda extranjera. En tercer lugar, existe un mercado local de
+deuda profundo donde las empresas pueden emitir bonos de largo plazo en el
+mercado local y grandes inversionistas institucionales participan canalizando
+los ahorros de personas a estas firmas. Una unidad de cuenta indexada a la
+inflación (UF) permite que estos accesos sean posible a tasas de interés fijas y
+por plazos relativamente largos. En este sentido, el compromiso del BCCh de
+mantener la inflación controlada es crucial para el adecuado funcionamiento
+del mercado de deuda privada de largo plazo. Por último, la deuda externa
+de empresas se concentra mayormente en dos tipos de fuentes: créditos con
+empresas relacionadas (IED) y bonos externos. Como se ha mencionado en
+IEF previos, los créditos con empresas relacionadas suelen estar registrados
+bajo el concepto de préstamos desde una matriz externa a una filial local,
+por lo que ese financiamiento corresponde a una decisión estratégica de la
+matriz sobre el mix capital versus deuda, sin implicancias sobre la exposición a
+riesgos financieros o cambiarios. En el caso de bonos externos, la información
+disponible permite establecer que dicha deuda tiene un alto nivel de cobertura
+cambiaria, ya sea porque las firmas tienen sus negocios en moneda extranjera
+o porque utilizan derivados para cerrar la posición (Capítulo II).
+
+\hypertarget{RI.1}{%
+\section*{Recuadro I.1}\label{RI.1}}
+\addcontentsline{toc}{section}{Recuadro I.1}
+
+\hypertarget{RI.12}{%
+\subsection*{\texorpdfstring{\textbf{FLUJOS DE CAPITALES Y RESILIENCIA EXTERNA}}{FLUJOS DE CAPITALES Y RESILIENCIA EXTERNA}}\label{RI.12}}
+\addcontentsline{toc}{subsection}{\textbf{FLUJOS DE CAPITALES Y RESILIENCIA EXTERNA}}
+
+Este Recuadro discute los eventos recientes de salidas de
+capitales de no-residentes desde Chile y el estado de las
+condiciones macroeconómicas relevantes para enfrentar estos
+movimientos de capitales, así como sus implicancias para la
+estabilidad financiera.
+
+\hypertarget{RI.13}{%
+\subsubsection*{\texorpdfstring{\textbf{Riesgos asociados a reversión en flujos de capitales}}{Riesgos asociados a reversión en flujos de capitales}}\label{RI.13}}
+\addcontentsline{toc}{subsubsection}{\textbf{Riesgos asociados a reversión en flujos de capitales}}
+
+Luego de la crisis financiera global, las economías emergentes
+(EME) se beneficiaron de años de flujos de entrada de capitales
+motivados por condiciones financieras externas que favorecieron
+la toma de riesgo y búsqueda de retornos. En los últimos años,
+sin embargo, la sensibilidad de los flujos de portafolio a shocks
+externos se ha incrementado para un gran número de países
+(Álvarez et al., 2019). Ambos factores ---altos flujos de capitales
+y mayor sensibilidad a factores externos--- han conducido
+a que se observen salidas de capitales más pronunciadas
+ante cada shock. Mientras estos ajustes se reviertan en el
+corto plazo, por ejemplo producto de la misma naturaleza de
+ciertos tipos de flujos1
+/, es probable que la economía no se vea
+mayormente afectada. Sin embargo, la situación puede volverse
+más compleja cuando se generan salidas consecutivas y de
+magnitud importante. Esto podría conllevar dificultades para el
+financiamiento del déficit en cuenta corriente.
+Estas reversiones de capitales pueden ser más relevantes en
+economías más dependientes de financiamiento externo de
+corto plazo, o cuando la cuenta financiera está concentrada
+en capitales más volátiles. En ese sentido, las condiciones
+macroeconómicas de una economía son fundamentales a la
+hora de prevenir o aminorar los efectos de los riesgos externos
+cuando estos se cristalizan. El grado de resiliencia de un país
+para enfrentar dichos riesgos también está relacionado con su
+capacidad de haber contenido la incubación de vulnerabilidades
+en los sectores de la economía más expuestos o dependientes a
+este tipo de financiamiento ---por ejemplo, a través de elevada
+deuda externa de corto plazo.
+
+\hypertarget{RI.13}{%
+\subsubsection*{\texorpdfstring{\textbf{Recientes salidas de capitales}}{Recientes salidas de capitales}}\label{RI.13}}
+\addcontentsline{toc}{subsubsection}{\textbf{Recientes salidas de capitales}}
+
+Salidas de capitales en alta frecuencia son reportadas por
+el Emerging Portfolio Fund Research (EPFR), que registra
+movimientos de flujos de portafolio para un grupo acotado de
+inversionistas extranjeros. Si bien esta fuente de información no
+contiene todos los flujos de capitales, permite obtener una señal
+sobre los rebalanceos de portafolio relacionados a cambios
+en la aversión global al riesgo. Los datos para Chile, con esta
+fuente, muestran salidas de flujos relevantes en los meses de
+marzo y abril. De esta forma se acumula una salida en un año
+de US\$721 millones (gráfico I.19).
+
+Flujo de portafolio de no-residentes a Chile (*)(miles de millones de dólares acumulados en 12 meses)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-22-1.pdf}
+
+(*) Último dato calculado con información hasta el 29 de abril del 2020.
+Fuente: EPFR.
+
+Para poner en contexto esta cifra, se debe considerar la
+evolución del stock de pasivos externos de Chile. En efecto, el
+tamaño del componente portafolio de los pasivos externos ha
+crecido en la última década, pasando de representar un 14\%
+del PIB en el 2009 a un 37\% al tercer trimestre del 2019. Esta
+tendencia también se aprecia en algunos países de la región,
+mientras otros emergentes han mantenido una relación con el
+PIB relativamente estables (tabla I.4).
+
+Para el caso de Chile hay dos elementos relevantes detrás del
+aumento de estos pasivos externos. En primer lugar, durante
+la última década empresas locales han emitido en el exterior
+aprovechando las mejores condiciones financieras. Cabe señalar
+que dichas emisiones han sido acompañadas con diversas
+estrategias de cobertura cambiaria. En particular, aquellas que
+tienen como moneda funcional el peso utilizan instrumentos
+derivados para mitigar el riesgo cambiario. Cifras recientes dan
+cuenta de que este último es reducido (Capítulo II). Por otra parte,
+desde el 2017 se observa un incremento en la participación de
+no-residentes en el mercado de bonos soberanos locales, que
+pasó de un 5 a 20\% a finales del 2019. Este mayor interés
+por bonos locales proviene de la mayor ponderación de bonos
+soberanos chilenos en portafolios benchmark, así como de la
+simplificación regulatoria para la adquisición de títulos de deuda
+por parte de no-residentes.
+
+\hypertarget{RI.14}{%
+\subsubsection*{\texorpdfstring{\textbf{Resiliencia de la economía local}}{Resiliencia de la economía local}}\label{RI.14}}
+\addcontentsline{toc}{subsubsection}{\textbf{Resiliencia de la economía local}}
+
+Chile es una economía emergente exportadora de commodities.
+Por tanto, existen diversos grupos de países con cuales es posible
+realizar un análisis comparado de la evolución de su posición
+financiera externa, y de sus condiciones macroeconómicas.
+En relación con países emergentes, un análisis previo concluyó
+que estos elementos eran sólidos para la economía local (IEF
+del primer semestre de 2014). Así, el nivel de solvencia y
+liquidez externas eran elevados2
+/, mientras que sus condiciones
+macroeconómicas domésticas eran favorables. Estos factores,
+junto a un marco de política de metas de inflación y régimen
+de tipo de cambio flexible, contribuyen a la mitigación de los
+efectos adversos de reversiones de capitales extranjeros. Una
+actualización de dicha comparación mantiene las conclusiones.
+En particular, la deuda pública se percibe contenida y las
+presiones inflacionarias bajas respecto de este grupo de países
+(anexo estadístico).
+Dada la elevada integración financiera de Chile con el resto del
+mundo, otra comparación posible es con países exportadores
+de commodities, como Australia, Canadá y Nueva Zelanda. Un
+elemento diferenciador de este tipo de economías respecto de
+emergentes es la poca relevancia de las reservas internacionales
+dentro de la Posición de Inversión Internacional Neta (PIIN).
+Esto se explica porque en estas economías los mercados
+financieros son más maduros. A su vez, a nivel local existe
+una mayor relevancia de los pasivos externos relacionados a
+inversión extranjera directa, la que tiende a ser menos volátil.
+Otro elemento que mitiga los riesgos de un eventual aumento
+los pasivos externos, es el alto nivel de activos externos, esto
+permite en que la PIIN sea relativamente más baja (gráfico I.20).
+
+Posición de inversión internacional neta 2018(porcentaje del PIB)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-23-1.pdf}
+
+Fuente: Banco Central en base a información del FMI y BM.
+
+Además, la comparación de otras métricas de liquidez externa
+con este grupo de países exportadores de commodities confirma
+que la situación externa de Chile permanece sólida (gráfico I.21).
+De este modo, el nivel de reservas internacionales de Chile a abril
+de este año, que asciende a US\$37.095 millones (13,1\% del PIB
+del cuarto trimestre del 2019) al cierre estadístico de este IEF,
+se considera adecuado. En efecto, Chile se encuentra calificado
+como mercado maduro respecto de su nivel de reservas, junto
+con países como Nueva Zelanda, Australia y Canadá (FMI, 2016).
+
+Índice de adecuación de reservas, diversas métricas (*)(porcentaje del PIB, veces)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-24-1.pdf}
+
+(*) RI: reservas internacionales. DECPR: deuda externa de corto plazo residual. DCC: déficit en cuenta corriente. ARA: Assessing Reserve Adequacy. (FMI, 2016). El DCC es igual a cero cuando la cuenta corriente es superavitaria. Ninguna métrica considera los accesos a líneas de crédito flexibles del FMI que tienen algunos países.
+Fuente: Banco Central de Chile en base a información del FMI.
+
+\hypertarget{RI.15}{%
+\subsubsection*{\texorpdfstring{\textbf{Consideraciones finales}}{Consideraciones finales}}\label{RI.15}}
+\addcontentsline{toc}{subsubsection}{\textbf{Consideraciones finales}}
+
+Las condiciones macroeconómicas de Chile se mantienen sólidas,
+otorgándole al país una posición favorable para enfrentar los
+efectos de factores externos. Su alta integración financiera
+internacional ---expresada por sus niveles más altos de activos
+y pasivos externos--- se acompaña de un marco de política que
+permite a la economía ajustarse más rápido ante disrupciones
+externas.
+Dentro de ese contexto, es importante enfatizar que las acciones
+de emergencia tomadas por diversos países, incluido Chile, ante
+la crisis del Covid-19 podrían implicar menor espacio de política
+en el futuro. Por ello, seguirá siendo fundamental complementar
+el análisis de la efectividad de las medidas implementadas en los
+últimos meses con el constante monitoreo de la evolución de la
+situación global y sus implicancias para Chile.
+
+\hypertarget{UCR}{%
+\chapter*{II. USUARIOS DE CRÉDITO}\label{UCR}}
+\addcontentsline{toc}{chapter}{II. USUARIOS DE CRÉDITO}
+
+\textbf{Desde el IEF anterior, la emergencia sanitaria está materializando el riesgo de
+deterioro de la actividad económica, identificado como central para usuarios de
+crédito en Informes previos. En el caso de las empresas, los eventos de octubre
+del año pasado, junto con una creciente dificultad para generar ingresos
+durante el presente año, debido a disrupciones en la capacidad productiva y
+en la demanda, se han traducido en un menor flujo de caja para honrar sus
+obligaciones financieras. En este contexto de deterioro económico, el sector
+inmobiliario también ha reducido su dinamismo con menor flujo de ventas,
+bajo inicio de nuevos proyectos y reducido crecimiento de precios. Por su
+parte, los hogares se ven enfrentados a un deterioro del mercado laboral, sin
+aún presentar aumentos relevantes en sus medidas de impago. Las políticas
+de mitigación implementadas han contribuido a que los usuarios de crédito
+no hayan deteriorado su posición financiera en una mayor magnitud. Hacia
+adelante, la evolución de la emergencia sanitaria y la efectividad de las medidas
+aplicadas determinarán el grado con el que se materialicen estos riesgos.}
+
+\hypertarget{EM}{%
+\section*{EMPRESAS}\label{EM}}
+\addcontentsline{toc}{section}{EMPRESAS}
+
+\textbf{\emph{Los efectos de las restricciones a la actividad y la caída de ingresos
+producto de ellas, se reflejarán en un deterioro de la posición
+financiera de las empresas, limitando su capacidad de pago.}}
+
+La deuda de las empresas alcanzó 131\% del PIB a marzo de este año, impulsada
+en gran medida por la depreciación del peso (gráfico II.1). Esto corresponde a
+un crecimiento de 16\% real anual (tabla II.1). Dicha evolución se vio impulsada
+principalmente por el aumento en los préstamos de la banca local, que crecieron
+cerca de 11\% real anual, y por la deuda externa. El crecimiento de esta última
+se explica mayormente por la variación anual del tipo de cambio, que alcanzó
+una variación real anual de 26\% al primer trimestre de este año (gráfico II.2).
+
+Deuda total de empresas por tipo de deuda (1)(porcentaje del PIB)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+(1.) Basado en información a nivel de empresas con la excepción de factoring, leasing y otros, bonos securitizados y efectos de comercio. Hasta 2017 datos al cierre de año, después datos trimestrales. Dato a marzo de 2020 corresponde a una estimación de las fuentes de financiamiento con los datos reportados hasta la fecha.
+(2.) Se considera el PIB de año móvil terminado en cada trimestre.
+(3.) Bonos corporativos, bonos securitizados con subyacente de origen no bancario y efectos de comercio.
+(4.) Incluye créditos contingentes, personas y comex. No incluye créditos universitarios a personas.
+(5.) Factoring incluye instituciones bancarias y no bancarias (estimado a diciembre 2018). Se incluye deuda (principalmente leasing) de Compañías de Seguros de Vida.
+(6.) Convertida a pesos según el tipo de cambio promedio del último mes de cada trimestre.
+(7.) Incluye a organismos multilaterales.
+Fuente: Banco Central de Chile en base a información de la Achef, y CMF.
+
+Descalce de empresas reportantes CMF (*)(porcentaje de los activos totales)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-26-1.pdf}
+
+(1.) La deuda externa corresponde a bonos externos, préstamos externos, créditos comerciales más IED. Hasta 2017 datos a cierre de año, después datos trimestrales.
+(2.) Tipo de cambio corresponden al promedio del último mes.
+(3.) Dato a marzo de 2020 corresponde a una estimación de las fuentes de financiamiento con los datos reportados hasta la fecha.
+Fuente: Banco Central de Chile en base a información de la Achef, y CMF.
+
+Por su parte, las obligaciones por bonos locales, a pesar de moderar su
+crecimiento anual en el último trimestre respecto al anterior, mantienen un
+dinamismo importante desde fines del año 2018, fundamentalmente con
+fines de refinanciamiento. Respecto de la deuda bancaria local, desde fines
+del 2019 se registra una mayor contribución de las empresas que reportan sus
+balances financieros a la Comisión para el Mercado Financiero (CMF) (llamadas
+reportantes), particularmente en el primer trimestre del 2020 (anexo estadístico).
+
+\textbf{\emph{Se mantienen los mitigadores discutidos en IEF previos, como la
+participación de la deuda externa asociada a Inversión Extranjera
+Directa (IED) y el acotado riesgo cambiario en las empresas reportantes.}}
+
+Alrededor de un 45\% de la deuda externa de las empresas corresponde a
+préstamos asociados a IED. Esta deuda se caracteriza por un menor grado
+de exigibilidad en comparación a una obligación pactada con una institución
+financiera, debido a la relación de propiedad entre el deudor y el acreedor.
+Respecto de la deuda externa distinta de préstamos asociados a IED, el riesgo
+cambiario se encuentra atenuado. Dos tercios de esta deuda se encuentra
+en los balances de firmas con contabilidad en dólares; en tanto el resto
+está en manos de firmas que ---teniendo contabilidad en pesos--- cuentan
+con apropiados niveles de cobertura cambiaria. En específico, empresas con
+descalces cambiarios superiores a 10\% de sus activos corresponden a 10\% de
+los activos totales del sector (gráfico II.3).
+
+Descalce de empresas reportantes CMF (*)(porcentaje de los activos totales)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-27-1.pdf}
+
+(*) Considera una muestra de empresas que reportan sus balances en pesos. El descalce se calcula como pasivos en dólares menos activos en dólares, menos posición neta en derivados, sobre activos totales. No considera empresas estatales, y de los sectores Servicios Financieros y Minería. Datos anuales, excepto septiembre 2019.
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+\textbf{\emph{Datos preliminares al cierre del 2019, muestran que las empresas
+reportantes experimentaron un deterioro en sus indicadores
+financieros.}}
+
+La rentabilidad sobre activos de las empresas, alcanzó 6,4\%, mientras que
+la cobertura de intereses se ubicó en 3,1 veces, cifras que se comparan
+negativamente con 7,0\% y 3,7 veces del año anterior, respectivamente (gráfico
+II.4). El deterioro observado se explica por varios factores: (i) algunas empresas
+redujeron sus utilidades con respecto a años previos; (ii) mayor gasto financiero,
+explicado en parte por un cambio contable asociado al reconocimiento de
+contratos de arriendo1/; y (iii) aumento de activos con respecto al año anterior
+por compra de participaciones y cambio contable. Respecto de los indicadores
+de liquidez, se registró un deterioro generalizado hacia finales del 2019. Sin
+embargo, para la totalidad de las empresas del sector, el stock de bonos locales
+creció aproximadamente un 10\% real durante el primer trimestre del 2020
+respecto a diciembre de 2019, situación que apoyaría la liquidez de las firmas.
+
+Evolución histórica de indicadores (*))(porcentaje, veces)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-28-1.pdf}
+
+(*) ROA: Utilidad acumulada en doce meses antes de gastos financieros más impuestos sobre activos totales. Cobertura: Utilidad antes de impuestos y gastos financieros sobre los gastos financieros anuales. Datos Consolidados. No considera empresas estatales ni aquellas clasificadas en los sectores Servicios Financieros y Minería.
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+En relación a los efectos de la emergencia sanitaria, la cual ha mermado las
+capacidades de las firmas para generar flujo de caja, la Encuesta de Crédito
+Bancario (ECB) del primer trimestre de este año indica mayor demanda por
+parte de las grandes empresas, las cuales estarían utilizando los fondos para
+satisfacer sus mayores necesidades de liquidez. Al respecto, utilizando una
+muestra de treinta empresas que reportaron balances a la CMF al cierre del
+2019, se realiza un ejercicio de tensión para los flujos de caja. La muestra
+incluye empresas de los sectores construcción, consumo, alimentos y otros
+varios. Estas en conjunto representan cerca de 25\% de los activos consolidados
+del sector corporativo a septiembre del 2019 (excluyendo servicios financieros,
+minería y estatales). Los resultados de este ejercicio sugieren que, bajo un
+escenario donde los ingresos de dichas firmas se redujeran a la mitad, la
+mayoría de ellas podría solventar sus gastos por más de seis meses. En una
+situación más estresada, donde los ingresos fuesen iguales a cero, la mayor
+parte de las empresas tendrían caja suficiente para solventar a lo más seis
+meses de gastos (gráfico II.5).
+
+Meses de caja (*)(porcentaje del total de firmas)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-29-1.pdf}
+
+(*) Corresponde a una sub-muestra de 30 empresas a diciembre de 2019 analizadas para los sectores económicos: Consumo, Alimentos, Construcción, Servicios y Otros. Ejercicio de liquidez corresponde a estimar la caja y otros activos corrientes, bajo ciertos ajustes, comparados con las obligaciones en los próximos meses, para así representar en una medida estándar los meses de caja disponible para un grupo de empresas.
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+Complementariamente, se realiza un ejercicio de tensión a partir de información
+granular de ventas, aproximaciones de gastos, y una proyección de sus ingresos
+futuros de acuerdo a la evolución esperada para la actividad de cada sector
+para un conjunto amplio de empresas. Se configuran escenarios de tensión
+con cuatro meses consecutivos de caídas en ventas, tras lo cual se acumula
+una baja promedio en torno a 10\%. Los resultados indican que el número
+de firmas con flujo de caja negativo ----es decir, con gastos mayores a sus
+ingresos---- aumentaría entre 50 y 60\% respecto de lo visto en el segundo
+trimestre del 2019. De este modo, para cubrir los menores ingresos requerirían
+de financiamiento adicional (Grupo de Microdatos DPM, 2020).
+
+En el actual contexto de deterioro económico, además de la relevancia del
+canal del crédito mediado por la banca, se vuelve importante la continuidad
+de la cadena de pagos entre empresas. La evidencia indica que las compras
+a crédito entre firmas son ampliamente utilizadas por las empresas en Chile
+para financiarse en el corto plazo, alcanzando en promedio un 8\% de sus
+obligaciones totales. Por tanto, no sólo la banca está expuesta a situaciones
+donde las empresas no dispongan de liquidez suficiente para realizar sus
+pagos, sino también otras firmas acreedoras (Recuadro II.1).
+
+Los impactos económicos de la emergencia sanitaria podrían ser mayores y
+más persistentes si no se cuenta con recursos suficientes para satisfacer las
+necesidades de caja de las firmas. Las empresas reportantes, las cuales se
+financian mayormente con bonos, tanto locales como externos, podrían requerir
+del crédito bancario local para satisfacer dichas necesidades adicionales. De
+ser así, existe el riesgo de que desplacen a las firmas de menor tamaño en el
+mercado local, agudizando la escasez de liquidez para las excluidas. En ese
+sentido, políticas que permitan avanzar en la activación del mercado bonos
+permitiría que estas firmas pueden obtener el financiamiento requerido sin
+generar disrupciones financieras en otros agentes.
+
+\textbf{\emph{La exposición directa de los bancos a grandes firmas es elevada,
+por lo que un deterioro de estas tendría impactos relevantes en la
+cartera de la banca.}}
+
+Como se ha mencionado en IEF previos, la deuda de este grupo de firmas está
+distribuida entre diversas fuentes de financiamiento. Entre estas, destaca la
+banca local con un 15\% de la deuda financiera total del sector al 2019, cifra que
+da cuenta de un cambio relevante en estructura de pasivos cuando se compara
+con el 60\% de principios de los noventas (Espinosa y Fernández, 2015). Esto no
+solo ocurrió debido a una mayor diversificación de financiamiento, sino también
+por el aumento de sus activos. Sin embargo, la exposición de los bancos a estas
+firmas es relevante (gráfico II.6).
+
+Relevancia empresas reportantes en los 100 mayores deudores(porcentaje de la deuda comercial)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-30-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+Los créditos bancarios a grandes empresas quedan registrados dentro de la
+cartera de evaluación individual. Siguiendo la normativa de provisiones de la
+CMF, los bancos agrupan a estos deudores según su riesgo de crédito entre
+cartera normal, sub-estándar e incumplimiento. Así, la cartera normal de
+evaluación individual representa 80\% de las colocaciones comerciales de la
+banca. Dentro de esta cartera normal, los deudores reciben clasificaciones de
+riesgo que pueden mapearse con aquellas que generan agencias externas.
+Relacionando estas últimas con la medida de probabilidad de quiebra de
+Moody's, es posible ponderar por riesgo de impago las deudas de estas
+firmas, obteniendo la deuda total en riesgo (DeR). Así, la DeR asociada a
+grandes deudores representaba 1\% del PIB a enero de 2020 (gráfico II.7).
+Si bien esta cifra es acotada, podría aumentar a 3,1\% del PIB si es que todas
+las firmas aumentaran sus probabilidades de quiebra en una proporción
+consistente con una rebaja de dos categorías de riesgo de las clasificaciones
+de agencias externas. Cabe mencionar que existen varios mitigadores para
+este riesgo: provisiones, garantías y capital. En IEF previos hemos discutido
+sobre los alcances de cada uno de ellos bajo escenarios de tensión de carácter
+sistémicos. En tales escenarios, el aumento del riesgo de crédito trae aparejada
+una caída de precios de activos, disminuyendo así la potencia de mitigadores
+menos líquidos. Por lo anterior resulta relevante el contar con herramientas que
+reduzcan el deterioro financiero de grandes firmas y faciliten acceso a distintas
+fuentes de financiamiento.
+
+Deuda comercial en riesgo (*)(porcentaje del PIB)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-31-1.pdf}
+
+(*) Corresponde al valor de las colocaciones comerciales clasificadas en las categorías A1-A6 ponderadas por las probabilidades de quiebra equivalentes de las distintas clasificaciones de riesgo.
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+\textbf{\emph{La aplicación de políticas de mitigación ha contribuido a que los
+indicadores del sector no se hayan deteriorado en mayor magnitud.}}
+
+Los eventos de octubre del año pasado, asociados a las protestas sociales,
+afectaron la demanda enfrentada por algunas empresas y, por ende, su
+capacidad de pago. En aquel periodo se produjo un cierre forzado de
+algunos locales y hubo apertura parcial de otros, por lo que ciertas firmas
+vieron afectada su capacidad para generar ingresos. En consecuencia, entre
+octubre y noviembre del año pasado, se observó un aumento importante en
+los atrasos en créditos bancarios hasta 60 días. Dichos atrasos mostraron una
+marcada disminución en diciembre (anexo estadístico) lo que parecería indicar
+reprogramaciones de dichos deudores por parte de los bancos.
+
+Desde mediados de marzo de este año los efectos de la emergencia sanitaria
+se han reflejado en un menor nivel de actividad de las empresas. Debido a esto,
+en los próximos meses podría materializarse un aumento en el incumplimiento
+de sus obligaciones, el cual podría mitigarse dependiendo de su acceso al
+crédito. La flexibilización de la normativa para reprogramación de créditos en
+cuotas implementada por la CMF, el acceso a la línea Covid-19 mediante la
+ampliación de las garantías estatales (FOGAPE y FOGAIN), el programa de
+protección al empleo, y la Facilidad de Crédito Condicional al Incremento de
+las Colocaciones (FCIC) aplicada por el BCCh, están contribuyendo a mitigar el
+impacto económico de la emergencia sanitaria sobre el sector.
+
+Respecto a la línea Covid-19, que financia capital de trabajo en función de las
+ventas pasadas de las firmas, es importante considerar la alta heterogeneidad
+en los niveles de endeudamiento inicial respecto de ventas (tabla II.2).
+Esto configura un escenario más complejo para aquellas que tienen niveles
+de endeudamiento significativo, pues podrían enfrentar dificultades para
+acceder a nuevos créditos o elevar su carga de endeudamiento hasta niveles
+difíciles de sostener. En contraste, firmas que tengan tanto niveles saludables
+de endeudamiento como positivas perspectivas de ventas futuras se verán
+beneficiadas por la línea de crédito Covid-19.
+
+En síntesis, los efectos de las restricciones a la actividad y la caída de ingresos
+producto de ellas, se reflejarán en un deterioro de la posición financiera de
+las empresas, limitando su capacidad de pago. Al primer trimestre del 2020,
+la deuda total de las empresas alcanzó, en el agregado, 131\% del PIB. Esto
+representa un incremento respecto del IEF previo y se explica, en gran medida,
+por la depreciación del peso frente al dólar, lo que genera una revalorización
+de la deuda externa. Entre firmas de mayor tamaño y que reportan sus
+balances financieros a la CMF, se aprecia que una fracción de ellas necesitará
+financiamiento adicional para complementar su flujo de caja. Si bien estas
+empresas se financian mayormente con bonos, tanto locales como externos,
+podrían requerir del crédito bancario local para satisfacer dichas necesidades.
+A su vez, en el caso de las empresas cuya fuente de financiamiento principal es
+la banca, algunas de ellas presentan vulnerabilidades previamente incubadas
+que derivan de la menor actividad económica observada desde octubre de
+2019, producto de las protestas sociales. En este contexto, este grupo enfrenta
+el potencial riesgo de verse desplazado por firmas de mayor tamaño en el
+mercado bancario local, si estas últimas no pudieran financiarse mediante la
+emisión de bonos. Por ello resulta fundamental avanzar en la activación de este
+mercado.
+
+\hypertarget{SIN}{%
+\section*{SECTOR INMOBILIARIO}\label{SIN}}
+\addcontentsline{toc}{section}{SECTOR INMOBILIARIO}
+
+\textbf{\emph{Con respecto al IEF anterior, el sector inmobiliario residencial
+disminuyó su dinamismo. Esta situación podría intensificarse en lo
+venidero y exponer las vulnerabilidades destacadas en Informes
+previos, como por ejemplo la alta participación de inversionistas
+minoristas apalancados.}}
+
+Desde el último Informe el sector inmobiliario residencial ha presentado menor
+actividad, respecto a lo observado en los últimos años. Este ajuste, iniciado
+con las protestas sociales de mediados de octubre de 2019, se intensificó
+producto de la emergencia sanitaria que se enfrenta a nivel mundial. El actual
+escenario afecta a las empresas constructoras e inmobiliarias que han debido
+paralizar proyectos y han visto reducidas sus ventas. Asimismo, las instituciones
+financieras que financian a dichas firmas podrían verse afectadas por los
+shocks de ingreso que enfrentan sus deudores. Finalmente, los inversionistas
+minoristas apalancados que utilizan los ingresos por arriendo para pagar sus
+hipotecas pudieran tener dificultades ante el deterioro del mercado del trabajo.
+Respecto de las ventas de viviendas nuevas en la Región Metropolitana (RM),
+información de la Cámara Chilena de la Construcción (CChC) indica que
+éstas se redujeron un 50\% anual en el primer trimestre del 2020 (gráfico
+II.8). Esta caída en las ventas se concentró, principalmente, en el mercado de
+departamentos. Por su parte, la venta en casas también presentó caídas, las que
+fueron mitigadas en parte por el segmento con subsidio. Según el estado de la
+obra, el 40\% de las unidades vendidas se encontraban próximas a su entrega
+(terminadas y en terminaciones) (anexo estadístico), mientras que alrededor de
+la mitad estaba en etapa de construcción. Por su parte, la oferta de viviendas
+nuevas en RM se ha reducido, ubicándose en torno a 46 mil unidades. De
+éstas, un gran porcentaje se encuentra en etapas iniciales (construcción o sin
+ejecución) (gráfico II.9), lo que mitigaría las necesidades de liquidez de parte
+de las firmas del sector. Lo anterior, toma relevancia por cuanto necesidades
+de flujo de caja podrían motivar la venta con descuentos en determinados
+proyectos, situación que podría volverse sistémica en caso de afectar las
+expectativas de otros agentes.
+
+En este contexto, la actual emergencia sanitaria pone el foco de las empresas
+del sector, al igual que en el resto de las empresas, en el flujo de caja de los
+próximos meses. Así, la efectividad de las medidas de apoyo a las empresas,
+anunciadas por las autoridades será crucial en la capacidad de recuperación
+del sector una vez superada la emergencia sanitaria. Con todo, información
+de mercado sugiere que es probable que se produzcan ajustes a la baja en los
+volúmenes de inversión para los próximos años.
+Los distintos indicadores reales de precios de vivienda registraron tasas de
+crecimiento a nivel nacional en torno a 5\% en 2019, mostrado una moderación
+respecto de los años anteriores. En la RM la situación es similar, con una
+moderación en las tasas de crecimiento, tanto en casas como en departamentos
+(tabla II.3). Información de promesas de compraventa, así como de precios
+listados, indica que esta moderación en los precios de venta se mantuvo en el
+primer trimestre del 2020.
+
+Ventas de viviendas nuevas en Santiago (miles de unidades)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-32-1.pdf}
+
+(*) Promedio móvil anual.
+Fuente: Banco Central de Chile en base a información de la CChC.
+
+Oferta disponible de viviendas nuevas en Santiago.(miles de unidades)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-33-1.pdf}
+
+Fuente: Banco Central de Chile y CChC.
+
+Respecto del mercado de arriendos, los precios listados mostraron una
+moderación a fines del 2019, producto de las turbulencias políticas y sociales.
+Esta moderación estuvo concentrada principalmente en el mercado de
+departamentos, pero presentó heterogeneidad a través de comunas. A su vez,
+al cuarto trimestre del 2019, se observó una mayor holgura en este segmento,
+medida mediante aumentos en unidades disponibles para arriendo (gráfico
+II.10). Datos preliminares indican que esta situación se habría mantenido al
+primer trimestre del 2020.
+
+El deterioro en el mercado del trabajo debiera aumentar estas mayores holguras.
+Esta situación podría tensionar la capacidad de pago de aquellos deudores
+hipotecarios que dependen del arriendo para pagar sus créditos (inversionistas
+minoristas apalancados), exponiendo una de las principales vulnerabilidades
+destacadas en Informes previos. Así, un deterioro en el mercado laboral mayor
+al esperado, o por un periodo de tiempo más prolongado, corresponde al
+principal riesgo para estos agentes. Lo cual podría gatillar ventas de activos y
+presiones adicionales a la baja en precios por aumento en la oferta de unidades
+disponibles. En este sentido, el accionar de los mitigadores implementados ----
+el programa de protección al empleo, la flexibilización de la normativa para
+reprogramar créditos en cuotas, y la postergación de pagos---- contribuyen a
+aliviar estas presiones
+
+Precios de Arriendo y tasa de avisaje.(índice base 2007:T1 = 100, porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-34-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de Mercado Libre.
+
+\textbf{\emph{Desde el IEF anterior, las condiciones de financiamiento se han
+tornado más restrictivas, en un contexto donde las tasas de interés
+se han ajustado al alza, aunque permanecen en niveles bajos.}}
+
+Al primer trimestre del 2020, las colocaciones hipotecarias continuaron
+creciendo a un ritmo cercano a 8\% real anual, en un contexto donde las tasas
+de interés permanecen en niveles bajos. Si bien desde octubre del año pasado
+las tasas de colocación para créditos hipotecarios han presentado aumentos, el
+nivel de éstas sigue siendo bajo en perspectiva histórica (Capítulo III).
+Hacia el cierre del 2019, la relación deuda a garantía aumentó levemente
+su participación en créditos financiados entre el 80-90\%, sin embargo, la
+participación de aquellos sobre 90\% disminuyó (gráfico II.11).
+
+Razón deuda a garantía.(porcentaje de las escrituraciones)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-35-1.pdf}
+
+Fuente: Banco Central de Chile en base a información del SII.
+
+Por su parte, de acuerdo a la Encuesta de Crédito Bancario (ECB) para el primer
+trimestre de este año, la demanda habría dejado de expandirse mientras que
+las condiciones de otorgamiento de crédito hipotecario se habrían vuelto algo
+más restrictivas tras el inicio de las protestas sociales, mientras que, durante
+el primer trimestre del 2020, tanto la demanda como la oferta acentuarían su
+caída.
+La participación de los deudores con más de un crédito continuó aumentando
+a marzo de este año, alcanzando una participación sobre 30\% del stock de
+deuda hipotecaria bancaria (gráfico II.12). Esto ha coincidido con un mayor
+volumen de crédito destinado a aumentar el número de hipotecas desde la
+segunda mitad del 2019, el cual se moderó durante este año (gráfico II.14).
+En tanto, al cierre del 2019, la participación de quienes han adquirido más
+de una propiedad, financiada con crédito se estabilizó en torno a 20\%. Dicha
+estabilización estaría en línea con la disminución de ventas observada en el
+segmento departamentos de menor valor, en el cual se han concentrado los
+inversionistas minoristas apalancados.
+
+Por su parte, los desistimientos de promesas de compra venta de aquellas
+empresas que reportan a la CMF presentaron un leve aumento y una mayor
+dispersión al cierre del 2019 (anexo estadístico). Mientras, en las empresas
+inmobiliarias que no reportan a la CMF, y que en su mayoría se financian con
+la banca local, aumentaron sus indicadores de impago en el cuarto trimestre.
+
+Deuda según número de créditos y transacciones hipotecarias por deudor (*).(porcentaje del total)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-36-1.pdf}
+
+(*) A diciembre de cada año. Barras corresponden a información de número de créditos hipotecarios bancarios ponderados por deuda (CMF). Líneas corresponden a información de número de transacciones hipotecarias en la misma región ponderados por deuda (SII). Información preliminar para el año 2019 y estimada para marzo de 2020.
+Fuente: Banco Central de Chile en base a información de la CMF y del SII.
+
+\textbf{\emph{En el mercado inmobiliario no residencial los precios de arriendo
+de oficinas se mantuvieron relativamente estables y las tasas de
+vacancia presentaron ajustes a la baja.}}
+
+En el primer trimestre de este año, el mercado de oficinas de la RM de la clase
+A/A+ presentó una mantención en los precios de arriendo y una caída en la
+tasa de vacancia, alcanzando un 4,4\%. Lo anterior se asocia, principalmente,
+a la escasa entrada de nueva oferta. Por su parte, el precio de arriendo del
+segmento de oficinas clase B aumentó 1\%, mientras que la tasa de vacancia
+continuó a la baja, ubicándose en 6,5\% (anexo estadístico). Las perspectivas
+para el mercado de oficinas son favorables, dada la escasa entrada de proyectos
+esperada para el año. Así, los efectos de una eventual mayor debilidad en
+la demanda por oficinas podrían ser mitigados por la posición cíclica de la
+oferta. Hacia adelante, los cambios tecnológicos surgidos como respuesta a
+la emergencia sanitaria pudieran gatillar ajustes en las variables de equilibrio
+del sector.
+
+En síntesis, el sector inmobiliario residencial presentó una mayor debilidad
+luego de los eventos locales de octubre, lo que se reflejó, principalmente, en
+el segmento de departamentos. En la misma línea, los precios de arriendo de
+este tipo de viviendas mostraron menor crecimiento, junto con una mayor
+holgura. Con todo, al cierre estadístico de este Informe, los precios de venta
+agregados continuaban creciendo a nivel nacional a un ritmo cercano a 5\%
+real anual. Hacia adelante se espera que los efectos de la emergencia sanitaria
+profundicen la reducción en la demanda, lo que tendería a disminuir el grado
+de expansión de los precios. Respecto de la oferta, la industria ha mostrado
+signos de un ajuste lo que también podría gatillar aumentos de desempleo en
+el sector.
+
+\hypertarget{HOG}{%
+\section*{HOGARES}\label{HOG}}
+\addcontentsline{toc}{section}{HOGARES}
+
+\textbf{\emph{En el escenario actual, los hogares enfrentan un importante
+deterioro en el mercado laboral, el cual corresponde al principal
+riesgo identificado en ediciones previas. Una serie de medidas
+implementadas apuntan a mitigar los efectos de esta coyuntura
+sobre el sector.}}
+
+Desde el IEF anterior, la deuda de los hogares disminuyó su ritmo de expansión
+a 5,7\% real anual, mayormente debido a una importante reducción en el
+componente no-hipotecario bancario (tabla II.4). Dicha disminución coincidió
+con la implementación de medidas de confinamiento, las cuales han mermado la
+capacidad para generar ingresos y reducido el consumo de las familias. También
+ha contribuido al ajuste el mayor ahorro precautorio, el cual usualmente se
+produce ante periodos de mayor incertidumbre. Por otro lado, el mayor riesgo
+asociado al actual escenario eleva el costo del crédito. La relativa estabilidad
+en las tasas de interés de consumo indica que ha primado la menor demanda
+asociada a los dos primeros factores. En términos de riesgos financieros, el nuevo escenario asociado a la emergencia
+sanitaria ha gatillado una disminución en actividad, que se ha traducido en
+un deterioro del mercado laboral. Los efectos de la menor actividad se han
+concentrado hasta ahora en ciertos sectores más vinculados a trabajo presencial,
+como comercio, transportes y construcción. Estos desarrollos han motivado
+diversas acciones de política para mitigar los efectos del shock adverso.
+
+Al primer trimestre del 2020, tras un consistente aumento en la tasa de
+expansión de la deuda hipotecaria bancaria durante el 2019, se ha registrado
+estabilidad en torno a un crecimiento de 8\% real anual. Esto se ha dado en un
+contexto de bajas tasas de expansión de los precios de vivienda, lo cual está en
+línea con la evolución reciente de los montos promedio de crédito (gráfico II.13).
+Estos desarrollos podrían verse afectados por el rebalanceo de condiciones
+macro-financieras en el escenario local, donde se observa un deterioro del
+mercado del trabajo, mayores tasas de interés hipotecarias (Capítulo III), una
+disminución en el volumen de ventas del sector inmobiliario residencial (gráfico
+II.8) y un menor crecimiento de los precios de vivienda (tabla II.2).
+
+Deuda hipotecaria bancaria(variación real anual, porcentaje))
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-37-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de la CMF y del SII.
+
+Los elementos anteriores han modificado el riesgo y costo relativo de contraer
+y mantener obligaciones financieras, en distintas magnitudes dependiendo de
+las características del deudor. Así, para mitigar el riesgo de crédito, la CMF, el
+Ministerio de Hacienda y el BCCh han implementado una serie de medidas
+(tabla I.3 y Capítulo V). En particular, a comienzos de abril la CMF flexibilizó
+la norma de provisiones para la reprogramación de créditos en cuotas, así los
+bancos, cooperativas y mutuarias, no requieren computar mayores provisiones
+cuando no se efectúen los pagos asociados a las flexibilizaciones otorgadas
+a sus clientes. Al cierre de este Informe, se habían producido sobre 800 mil
+reprogramaciones por montos equivalentes a más de 20\% de la cartera
+bancaria total. Alrededor de 90\% de estas operaciones correspondían a créditos
+de consumo e hipotecarios, el resto a la cartera comercial. Esto contribuye a
+disminuir la carga financiera de los hogares que reprograman sus deudas.
+Con respecto al refinanciamiento de créditos hipotecarios, los cuales también
+permiten reducir la carga financiera de las familias, en diciembre se observó
+un aumento sustantivo en este tipo de operación, el cual se redujo desde
+entonces, junto con la obtención de créditos nuevos y adicionales. Esto
+coincidió con la implementación de medidas de confinamiento, las cuales
+han dificultado la tramitación de este tipo de contratos (gráfico II.14). Hacia
+adelante la composición de la deuda de los hogares debiera presentar ajustes,
+ya que la capacidad para adquirir un crédito puede verse disminuida entre
+quienes pierden ingresos, y a la vez aumentar los incentivos para refinanciar
+deudas previas de modo de reducir la carga financiera entre los hogares con
+restricciones de financiamiento (Chen et al., 2013).
+
+Flujo de crédito hipotecario bancario por tipo de operación(porcentaje de créditos hipotecarios)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-38-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+Por su parte, la deuda no-hipotecaria presentó un menor dinamismo respecto al
+IEF anterior, alcanzando una tasa de crecimiento de 2,5\% real anual. Como se
+mencionó antes, esto se vio influido mayormente por el componente bancario.
+Sin embargo, en el mismo lapso, la deuda no-bancaria también moderó su
+expansión, mayormente entre casas comerciales, CCAF y cooperativas (gráfico
+II.15). Dicha evolución se produjo en un contexto de mayor incertidumbre y
+medidas de confinamiento, las cuales han redundado en menor consumo. Con
+todo, la deuda total de los hogares se ubicó en 52\% del PIB al primer trimestre
+del presente año (tabla II.4).
+
+Deuda no hipotecaria (1).(variación real anual, porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-39-1.pdf}
+
+(1.) Al cuarto trimestre de 2019 la participación sobre el stock de deuda total es de 20\% para consumo bancario, 9\% las casas comerciales, CCAF y cooperativas de ahorro, 7\% deuda universitaria y 6\% para otros.
+(2.) Otros incluye compañias de leasing y seguro, automotoras y gobierno central (FONASA y otros).
+Fuente: Banco Central de Chile en base a información de la CMF, DIPRES y SUSESO.
+
+\textbf{\emph{Información granular da cuenta que, tanto el endeudamiento como
+la carga financiera bancaria, se han mantenido estables en el último
+año como proporción del ingreso.}}
+
+Mediante una muestra de datos administrativos para deudores bancarios
+asalariados2/ es posible construir indicadores de deuda bancaria sobre ingreso
+(RDI) y de carga financiera sobre ingreso (RCI). Con información a febrero del
+presente año se observaba que la mediana del RDI ---incluyendo obligaciones
+de consumo e hipotecarias--- se ubicó alrededor de 5 veces el ingreso mensual
+individual, confirmando la tendencia agregada de apalancamiento (gráfico
+II.16). En tanto, la razón de carga financiera sobre ingreso aumentó levemente
+desde el IEF anterior, ubicándose en 24\% del ingreso mensual para el deudor
+representativo.
+
+Indicadores para deudores bancarios asalariados (*)(veces el ingreso mensual; porcentaje del ingreso mensual)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-40-1.pdf}
+
+(*) Construidos a partir de deuda bancaria e ingresos reportados para un panel desbalanceado de empleados de la administración pública. Datos a marzo de cada año.
+Fuente: Fuente: Banco Central de Chile en base a información de la CMF y SUSESO.
+
+\textbf{\emph{Diversos indicadores de vulnerabilidad de los deudores bancarios
+sugieren que esta se ha mantenido contenida en el último año.}}
+
+Como se ha señalado en Informes previos, el sector de hogares no presentaba
+vulnerabilidades relevantes, con la excepción de ciertos segmentos más
+apalancados y con alta carga financiera. En ciertos casos, el servicio de deuda
+había disminuido entre los deudores hipotecarios que refinanciaron sus créditos
+en un ambiente de tasas de interés históricamente bajas. La información a
+marzo indica que los indicadores de incumplimiento se han mantenido en
+niveles bajos y estables, con un aumento en el caso de deudas de consumo
+bancario desde octubre del año pasado. En el caso de las obligaciones
+hipotecarias, los indicadores de impago no han mostrado mayores cambios en
+los últimos tres años (Capítulo III).
+
+Hacia adelante, la evolución de la situación financiera de los hogares dependerá
+de la profundidad y persistencia del shock de actividad y su interacción con los
+mitigadores implementados. Así, se vuelve relevante el monitoreo de aquellos
+agentes con altos niveles de deuda y/o carga financiera sobre ingreso, que
+estarían asociados a una mayor probabilidad de impago (Gerardi et al., 2018).
+En el caso de Chile, con información de la EFH 2017, hogares con ingreso
+familiar mediano y RCI inferiores a 40\% enfrentan una probabilidad de impago
+en consumo cercana a 40\%, mientras que aquellos con RCI sobre 80\%
+tendrían sobre 50\% de probabilidad de impago en dicha deuda (Córdova y
+Cruces, 2019).
+
+Para una muestra de deudores bancarios asalariados, se tiene que el individuo
+representativo (mediano) podría pagar sus obligaciones durante alrededor de
+ocho meses utilizando exclusivamente tarjetas y líneas de crédito. Por otro lado,
+un cuarto de los deudores en la muestra podría financiar a lo más tres meses de
+obligaciones bancarias con sus productos rotativos (gráfico II.17). Además, en
+el último año, la proporción de hogares con RCI sobre 40\% de su ingreso tuvo
+un leve aumento desde 27 a 31\%. Finalmente, respecto del grupo que reviste
+mayor riesgo (alta deuda y carga respecto de sus ingresos) estos aparecían
+estables a marzo de este año en torno a 20\% del total de deudores en la
+muestra (gráfico II.18).
+
+Cobertura bancaria con cupos disponibles(percentiles, meses)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-41-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de la CMF y SUSESO.
+
+Distribución de endeudamiento y carga a ingreso(porcentaje de deudores)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-42-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de la CMF y SUSESO..
+
+Con el fin de realizar ejercicios de tensión a la situación financiera de los hogares
+se plantean dos escenarios. En el primero, la tasa de desempleo nacional
+aumenta en un año hasta 14\%. En el segundo escenario, la tasa de desempleo
+se eleva hasta 11\% en un año. En ambos ejercicios la destrucción de empleos
+se concentra en los sectores de construcción, comercio y otros servicios. Es
+importante destacar que estos escenarios no corresponden a proyecciones del
+rumbo futuro del mercado laboral, sino que ilustran la relevancia del canal de la
+pérdida de ingreso en las finanzas de los hogares y en los efectos para la banca.
+El modelo subyacente contempla dos etapas. En la primera, se relaciona la
+probabilidad de destrucción de empleo individual con características del
+trabajador y de la relación laboral con el empleador. Luego, en la segunda
+etapa se relaciona el impago de la deuda correspondiente con la probabilidad
+de pérdida del empleo, nivel de ingreso y otros controles.
+
+Bajo dicho marco se realiza una simulación, que se basa en datos administrativos
+para deudas bancarias y relaciones empleado-empleador existentes hasta el
+primer trimestre del 2020 (Córdova y Valencia, 2020). Bajo el escenario de
+mayor desempleo antes descrito se produciría un aumento sustancial de la
+proporción de individuos vulnerables. Esta fracción pasaría desde el actual 20\%
+hasta 40\% de los deudores dentro de un año (gráfico II.18). Esto se traduciría en mayor impago bancario, el cual medido como deuda en riesgo pasaría desde
+1,1 a 3,4\% del PIB en el transcurso de un año, ubicándose 1pp por sobre lo
+visto durante la crisis financiera global (gráfico II.19). Con una menor tasa de
+desempleo, los efectos en riesgo de crédito serían sustancialmente menores.
+En específico, los deudores más vulnerables aumentarían sólo hasta 31\% ---
+en lugar de 40\%--- y la deuda en riesgo llegaría a 2,3\% del PIB, un punto
+porcentual debajo del escenario con más desempleo. La menor pérdida de
+empleo tiene mayor efectividad reduciendo el riesgo de crédito de la cartera
+hipotecaria, mientras la deuda de consumo en riesgo es la que más aumenta
+proporcionalmente. Un ejercicio análogo, que utiliza el mismo escenario de
+tensión con información a nivel de hogar de la Encuesta Financiera de Hogares
+2017 (Madeira, 2020), arroja resultados similares a los antes descritos. Estos
+análisis no incorporan otras políticas de mitigación implementadas, como
+reprogramaciones y prorrogas de deuda que distintas instituciones financieras
+han estado otorgando, lo que ha sido facilitado por una flexibilización normativa
+de la CMF. Tampoco incorpora la prorroga en el pago de contribuciones, las
+transferencias directas de ingreso y las postergaciones en el pago de servicios
+básicos, entre otras. Estos ejercicios muestran la relevancia de medidas
+tendientes a mitigar el deterioro del mercado del trabajo.
+
+Deuda en riesgo de los hogares (*)(porcentaje del PIB)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-43-1.pdf}
+
+(*) Deuda bancaria de los hogares (consumo e hipotecaria) equivale a 37\% del PIB y 40\% de las colocaciones bancarias totales al cierre de 2019.
+Fuente: Banco Central de Chile en base a información de SUSESO y CMF.
+
+En resumen, los hogares ---al igual que el resto de la economía--- enfrentan
+un entorno macro-financiero adverso producto de la emergencia sanitaria, ante
+el cual no han mostrado un aumento relevante de sus vulnerabilidades. Sin
+embargo, el escenario actual presenta riesgos significativos que ya se están
+materializando en mayor desocupación y menor creación de nuevos empleos,
+los cuales inciden en la capacidad de los hogares de generar ingresos y en la
+posibilidad de honrar sus obligaciones financieras. En este escenario se han
+anunciado diversas medidas que apuntan a mitigar los efectos adversos de la
+emergencia sanitaria. Dichos mitigadores han aliviado la situación financiera de
+los hogares y seguirán siendo cruciales en el devenir del sector.
+
+\hypertarget{GOC}{%
+\section*{GOBIERNO CENTRAL}\label{GOC}}
+\addcontentsline{toc}{section}{GOBIERNO CENTRAL}
+
+\textbf{\emph{La deuda neta del gobierno central alcanzó 7,9\% del PIB en 2019,
+mientras que la bruta llegó a 27,9\% del PIB.}}
+
+A diciembre de 2019, la deuda neta del gobierno central continúo aumentando,
+ubicándose en 7,9\% del PIB (gráfico II.20). De similar manera, la deuda bruta
+presentó un aumento de 2,3pp, alcanzando un 27,9\% del PIB. Este crecimiento
+se explicó tanto por mayores niveles de deuda interna como externa. Por una
+parte, la deuda interna presentó un aumento a 22\% en el 2019 de 20,3\% del
+año anterior, mientras que la deuda externa creció de 5,3 a 5,9\% desde 2018
+a al cierre de 2019. En particular, 80\% del stock de la deuda se encontraba
+denominada en moneda local (41,4\% en UF y 38\% en pesos). Respecto a
+denominación en moneda extranjera, el 97\% de esta se encontraba en
+dólares (55,7\%) y euros (41,1\%), correspondiente a 11,8 y 8,7\% del stock,
+respectivamente. Por su parte, 51,4\% del stock de deuda tiene vencimiento
+mayor a 10 años.
+
+Deuda del Gobierno Central(porcentaje del PIB)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-44-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de la Dirección de Presupuestos.
+
+A nivel global, los recientes paquetes fiscales, tendientes a mitigar los efectos
+de la pandemia, han implicado un transversal esfuerzo adicional. En el caso de
+Chile, de acuerdo a lo proyectado por el Ministerio de Hacienda, el tamaño del
+paquete fiscal implementado ascendería a 7\% del PIB, cercano al promedio
+de la muestra considerada (gráfico II.21). Así, respecto del año anterior, estas
+economías enfrentarán un significativo deterioro de sus balances, superando,
+en su mayoría, aquellos observados durante de la crisis financiera global.
+
+Paquetes fiscales ante el COVID-19 (*)(porcentaje del PIB de cada país)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-45-1.pdf}
+
+(*) Cierre al 10 de abril de acuerdo a lo publicado por el FMI. Linea horizontal corresponde al promedio de la muestra de países.
+Fuentes: Ministerio de Hacienda y FMI.
+
+En lo que respecta a Chile, lo proyectado por el Ministerio de Hacienda indica
+que el déficit fiscal este año casi duplicaría lo visto en 2009 (gráfico II.22).
+Este plan fiscal contempla movilizar recursos por más de US\$17 mil millones,
+de los cuales las medidas a financiar durante este año alcanzan a US\$12 mil
+millones, las que serán costeadas con reasignaciones por US\$2.500 millones,
+mayor endeudamiento por US\$4.000 millones y el resto con activos del tesoro
+público, lo cual incluye la repatriación de fondos soberanos.
+
+Balance fiscal efectivo (*)(porcentaje del PIB)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-46-1.pdf}
+
+(*) Estimación 2020 de Chile en base Ministerio de hacienda.
+Fuentes: Ministerio de Hacienda y FMI.
+
+\hypertarget{REC2.1}{%
+\section*{RECUADRO II.1}\label{REC2.1}}
+\addcontentsline{toc}{section}{RECUADRO II.1}
+
+\hypertarget{REC2.11}{%
+\subsection*{CUENTAS POR PAGAR COMO FUENTE DE FINANCIAMIENTO A CORTO PLAZO DE LAS EMPRESAS Y SU EVOLUCIÓN RECIENTE EN CHILE}\label{REC2.11}}
+\addcontentsline{toc}{subsection}{CUENTAS POR PAGAR COMO FUENTE DE FINANCIAMIENTO A CORTO PLAZO DE LAS EMPRESAS Y SU EVOLUCIÓN RECIENTE EN CHILE}
+
+Las cuentas por pagar constituyen una forma de crédito a corto
+plazo, y como tal, juegan un rol importante en el manejo de
+la liquidez de las empresas. Cuando un proveedor y su cliente
+acuerdan retrasar el pago de una factura, se genera una relación
+de crédito que convierte al primero en acreedor y al segundo
+en deudor. Así, las cuentas por cobrar y pagar de una empresa
+constituyen una medida de sus préstamos y de sus deudas
+hacia otras empresas. Esta forma de crédito, conocida en inglés
+como trade credit, es ampliamente utilizada en distintos países
+y representa una importante fuente de financiamiento a corto
+plazo para las empresas, especialmente para las pequeñas y
+medianas (PyMEs) (Cuñat y García, 2012).
+
+En este Recuadro se examina la importancia de esta forma de
+financiamiento para las empresas en Chile y el rol de las compras
+a crédito durante el último trimestre de 2019. Para ello se utiliza
+información sobre el universo de transacciones entre firmas en
+Chile entre los años 2018 y 2020, proveniente de la factura
+electrónica del Servicio de Impuestos Internos (SII)1
+/.
+
+\hypertarget{REC2.12}{%
+\subsubsection*{\texorpdfstring{\textbf{El uso de trade credit en Chile}}{El uso de trade credit en Chile}}\label{REC2.12}}
+\addcontentsline{toc}{subsubsection}{\textbf{El uso de trade credit en Chile}}
+
+Durante 2019, el volumen de ventas entre firmas emisoras de
+factura electrónica representó un 49,5\% de las ventas totales,
+según el formulario 29 del SII. Utilizando la fecha de vencimiento
+de cada factura emitida, es posible estimar el monto de cuentas
+por cobrar vigentes entre las empresas residentes en Chile2
+/. Al
+31 de diciembre de 2019, el stock de cuentas por cobrar era
+equivalente a 10,8\% del PIB de ese mismo año, en tanto que
+al 31 marzo de 2020 éste equivalía a 9,6\% del PIB de 20193
+/.
+
+Por otro lado, las ventas a crédito entre empresas representaron
+un 78,9\% del total de ventas entre empresas en 2019. Estas
+cifras resaltan la importancia del trade credit como fuente
+financiamiento a corto plazo en Chile, y son comparables a
+aquellas reportadas por algunos países de la OCDE4
+/.
+El uso de trade credit como forma de financiamiento es transversal
+a través de los distintos sectores económicos (gráfico II.23). Más
+aún, en términos de acceso a esta forma de financiamiento, el
+porcentaje de firmas que compra y vende a crédito es superior
+a 70\% en la mayoría de los sectores económicos (gráfico II.24).
+
+Transacciones a crédito por sector (*)(porcentaje de ventas y compras totales de cada sector al 2019)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-47-1.pdf}
+
+(*) Se consideran como ventas y compras a crédito aquellas transacciones en las que la factura tiene un plazo de vencimiento positivo.
+Fuente: Banco Central de Chile en base a información del SII.
+
+De igual forma, la venta y compra a crédito en las transacciones
+entre empresas es una práctica común en firmas de todos los
+tamaños. En promedio, medidas como un porcentaje de las
+transacciones totales, las compras a crédito crecen con el tamaño
+de las empresas, desde casi 50\% para las micro empresas hasta
+aproximadamente 84\% en las empresas grandes. Por otro lado,
+las ventas a crédito presentan un patrón similar, aunque menos
+pronunciado (tabla II.5).
+
+Empresas que transan a crédito por sector (*)(porcentaje de firmas dentro de cada sector que compran y venden a crédito al 2019)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-48-1.pdf}
+
+(*) Se consideran como ventas y compras a crédito aquellas transacciones en las que la factura tiene un plazo de vencimiento positivo. Se considera que una empresa compró o vendió a crédito durante 2019 si algunas de las facturas que recibió o emitió ese año tenía un plazo de vencimiento positivo.
+Fuente: Banco Central de Chile en base a información del SII.
+
+El uso intensivo del trade credit por parte de las PyME, que
+suelen enfrentar mayores restricciones en el acceso al crédito,
+las hace sensibles a cambios en las condiciones en que se recibe
+y se otorga esta forma de financiamiento. Por un lado, estas
+restricciones aumentan la importancia que tienen para ellas las
+compras a crédito como fuente de financiamiento de corto plazo.
+Por otro lado, un aumento en los plazos efectivos de pago de sus
+ventas a crédito puede transformarse en una fuente relevante de
+stress financiero para estas empresas.
+Por último, vale la pena destacar la relevancia que pueden
+llegar a tener las empresas grandes en la cadena de pagos.
+Considerando que éstas representan un casi un 80\% de las
+ventas totales entre empresas y que aproximadamente el 85\%
+de sus compras a otras empresas son a crédito, las empresas de
+mayor tamaño son los principales deudores en la red de trade
+credit y una parte importante de sus acreedores son PyME. Con
+todo, a nivel agregado la mayor parte de las transacciones a
+crédito son entre empresas de mayor tamaño (tabla II.5)
+
+\hypertarget{REC2.13}{%
+\subsubsection*{\texorpdfstring{\textbf{La evolución de las transacciones a crédito durante el último trimestre del 2019}}{La evolución de las transacciones a crédito durante el último trimestre del 2019}}\label{REC2.13}}
+\addcontentsline{toc}{subsubsection}{\textbf{La evolución de las transacciones a crédito durante el último trimestre del 2019}}
+
+Así como sucede con otras formas de crédito, el trade credit
+puede actuar como un canal de mitigación o de propagación de
+los shocks adversos que afectan a las empresas, y de esta forma,
+afectar la estabilidad financiera. Por un lado, las ventas a crédito
+ayudan a asignar eficientemente la liquidez desde empresas
+menos restringidas financieramente hacia a aquellas con menor
+capacidad de acceder a otras fuentes de financiamiento (Petersen
+y Rajan, 1997). Sin embargo, las ventas a crédito también
+exponen a los proveedores al riesgo de no pago de sus clientes,
+lo que puede facilitar la propagación del stress financiero desde
+clientes a proveedores en la cadena de producción, y generar
+disrupciones en la cadena de pagos (Jacobson y von Schedvin,
+2015). A nivel agregado, este mecanismo puede contribuir
+a la transmisión de shocks sectoriales (Raddatz, 2010) y a la
+amplificación del ciclo económico (Altinoglu, 2020).
+En este sentido, es interesante analizar cómo cambiaron las
+condiciones de financiamiento a través de compras a crédito en
+las empresas en función del crecimiento de sus ventas durante
+el último trimestre de 2019. Al hacer esta comparación a nivel
+de empresa, se puede ver que existe una leve correlación
+negativa entre estas dos variables (gráfico II.25). Así, en
+promedio, aquellas firmas cuyas ventas cayeron más, recibieron
+relativamente más crédito por parte de sus proveedores, aun
+cuando parecen haberlo hecho a un menor plazo (gráfico II.26).
+
+Cambio en compras a crédito y crecimiento de ventas (*)(puntos porcentuales, 2019:IV vs 2018:IV)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-49-1.pdf}
+
+(1.) Cambio en las cuentas por pagar es igual a la diferencia del \% de compras a crédito entre Q4 2019 vs Q4 2018. La tasa de crecimiento de ventas se calcula como el punto medio de la diferencia entre las ventas del F29 de Q419 vs Q418.
+(2.) Cada punto representa el promedio de la variable en el eje Y para un rango de valores de la variable en el eje X. La regresión considera datos granulares.
+(3.) Variación de plazo es igual a la diferencia del plazo promedio de la firma en Q4 2019 vs Q4 2018.
+Fuente: Banco Central de Chile en base a información del SII.
+
+Cambio en plazo promedio de compra a crédito vs.~tasa de crecimiento de ventas (*)(días, 2019:IV vs 2018:IV)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-50-1.pdf}
+
+(*) Cambio en las cuentas por pagar es igual a la diferencia del plazo promedio ponderado por monto de la transacción a nivel de firmas entre Q4 2019 vs Q4 2018. La tasa de crecimiento de ventas se calcula como el punto medio de la diferencia entre las ventas del F29 de Q419 vs Q418. Cada punto representa el promedio de la variable en el eje Y para un rango de valores de la variable en el eje X. La regresión considera datos granulares.
+
+\hypertarget{REC2.14}{%
+\subsubsection*{\texorpdfstring{\textbf{Conclusión}}{Conclusión}}\label{REC2.14}}
+\addcontentsline{toc}{subsubsection}{\textbf{Conclusión}}
+
+Las compras a crédito son ampliamente utilizadas por las
+empresas en Chile como fuente de financiamiento a corto
+plazo. Desde un punto de vista de estabilidad financiera, estas
+transacciones pueden actuar como un canal de mitigación
+o propagación de shocks adversos. La evidencia indica que
+durante el último trimestre del 2019 la compra a crédito fue una
+herramienta utilizada como fuente de financiamiento en el caso
+de las empresas que registraron caídas en sus ventas.
+
+\hypertarget{OFC}{%
+\chapter*{III. OFERENTES DE CRÉDITO}\label{OFC}}
+\addcontentsline{toc}{chapter}{III. OFERENTES DE CRÉDITO}
+
+\textbf{\emph{En el sector bancario, los créditos comerciales y de vivienda presentaron
+un mayor dinamismo desde el IEF anterior, en tanto, la cartera de consumo
+exhibió una contracción en el último trimestre. La cartera comercial y de
+consumo mostraron aumentos en morosidad, provisiones y castigos. Los
+ejercicios de tensión muestran que, aunque el sistema bancario mantiene
+un nivel de capital suficiente para absorber los efectos de un escenario
+severo, las holguras de capital se han reducido y son bajas para enfrentar
+una profundización y prolongación del actual escenario de pandemia.
+Finalmente, para los oferentes de crédito no bancarios (OCNB) el crecimiento
+de las colocaciones se desaceleraba al cierre del 2019.}}
+
+\hypertarget{SB}{%
+\section*{SECTOR BANCARIO}\label{SB}}
+\addcontentsline{toc}{section}{SECTOR BANCARIO}
+
+Las colocaciones comerciales y de vivienda exhibieron un mayor
+dinamismo desde el IEF anterior, en tanto la cartera de consumo
+presentó caídas en el primer trimestre del 2020 (gráfico III.1).
+
+La cartera comercial, respecto de la actividad económica, se ubicó en torno a su
+tendencia histórica, superándola en lo más reciente (gráfico III.2). Cabe señalar que,
+excluyendo los efectos de valoración de la cartera comercial en moneda extranjera,
+las tasas de crecimiento observadas serían algo más bajas (gráfico III.3).
+
+Crecimiento de las colocaciones (*)(variación real anual, porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-51-1.pdf}
+
+(*) Basado en estados financieros individuales. Línea punteada gris representa la fecha del ultimo IEF.
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+Brecha de colocaciones comerciales a IMACEC(número de desviaciones estándar)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-52-1.pdf}
+
+(*) Diferencia entre razón colocaciones comerciales a IMACEC y su propia tendencia, la cual se obtiene utilizando el filtro Hodrick-Prescott con lambda igual a 33 millones en ventanas acumulativas (One-sided) y móviles de 10 años desde enero de 1989.
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+Crecimiento de las colocaciones comerciales(variación real anual, porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-53-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+Sin perjuicio de lo anterior, desde finales del 2019, las colocaciones comerciales se han
+comportado de forma contra-cíclica y, por tanto, esta brecha podría incrementarse
+en la medida que la actividad económica se debilite y se mantenga el otorgamiento
+de créditos, impulsado por la demanda y medidas especiales. Esta expansión es
+coherente con los resultados de la Encuesta de Crédito Bancario (ECB) del primer
+trimestre de este año que da cuenta de una mayor demanda por parte de grandes
+empresas, que estarían usando sus líneas de créditos vigentes para satisfacer sus
+necesidades de liquidez, a pesar de una oferta de crédito que se torna algo más
+restrictiva (gráfico III.4). Los resultados sugieren un incremento de las solicitudes
+de crédito para capital de trabajo y sustitución de otras fuentes de financiamiento,
+mientras que las condiciones de otorgamiento se restringieron principalmente
+por el aumento del riesgo de los clientes (gráfico III.5). La oferta de crédito más
+restrictiva también se mantiene para las empresas de menor tamaño, sin embargo,
+su demanda se muestra más debilitada (anexo estadístico).
+
+Condiciones de crédito de grandes empresas (*)(índice)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-54-1.pdf}
+
+(*) Porcentaje neto de respuestas ponderadas por participación del banco en el segmento. Valores positivos indican una oferta más flexible y una demanda más fuerte, mientras que valores negativos indican una oferta más restrictiva y una demanda más débil. Intervalo calculado mediante Jackknife.
+Fuente: Banco Central de Chile.
+
+Factores de las condiciones de crédito de grandes empresas(porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-55-1.pdf}
+
+Fuente: Banco Central de Chile.
+
+En el actual contexto, si bien se ha mantenido la provisión de crédito, las
+colocaciones podrían desacelerarse en la medida que la oferta se adecue a
+un entorno más riesgoso y un menor dinamismo económico (gráfico III.4). Sin
+embargo, las medidas implementadas, como la provisión adicional de garantías
+estatales, acompañada de la Facilidad de Crédito Condicional al Incremento de
+las Colocaciones (FCIC) y flexibilización normativa, contribuirían a contrarrestar
+el debilitamiento de la oferta de fondos (tabla I.3 y Recuadro III.1).
+
+Factores de las condiciones de crédito de grandes empresas(porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-56-1.pdf}
+
+Fuente: Banco Central de Chile.
+
+Las colocaciones de consumo del sistema bancario1/ redujeron su dinamismo,
+pasando de un crecimiento anual de 1,3\% en el cuarto trimestre del 2019, a una
+contracción en 2,6\% real anual en el primer trimestre del 2020, consistente con
+la desaceleración de la actividad económica local. Esta tendencia muestra cierta
+similitud con otros períodos de fragilidad financiera, como la crisis financiera
+global. Además, está en línea con los resultados de la ECB del primer trimestre
+de este año y de la encuesta especial de fines del 2019, que sugerían una menor
+disposición de los hogares a endeudarse, y una oferta crediticia más restringida.
+Por su parte, las colocaciones hipotecarias incrementaron levemente su
+dinamismo desde el último IEF, con una expansión cercana a 8\% real anual.
+Esto, principalmente, debido al mayor monto promedio de deuda (gráfico II.13).
+En particular, hacia fines del año pasado, se reactivó un volumen relevante de
+operaciones que habrían quedado pendientes en octubre. En tanto, en lo más
+reciente, y en línea con el aumento de las tasas de interés y la implementación
+de medidas de confinamiento, los refinanciamientos de créditos hipotecarios
+habrían reducido su importancia en la composición de los flujos de crédito
+(gráfico II.14 y III.6). Finalmente, los resultados de la ECB del primer trimestre del
+año mostraron una demanda de créditos hipotecarios atenuada y condiciones
+de otorgamiento más restrictivas.
+
+La contracción de la actividad económica prevista para este año, sumada al
+deterioro de la calidad de las carteras de colocaciones, menores holguras de
+capital y condiciones de financiamiento menos favorables, constituyen un
+escenario que plantea desafíos para la banca. En este sentido, la aplicación de
+políticas por parte del BCCh, el Ministerio de Hacienda y la CMF, contribuyen a
+un proceso más eficiente de intermediación (tabla I.3 y Capítulo V).
+
+\textbf{\emph{Los indicadores de riesgo de crédito de la banca han aumentado desde el último IEF, principalmente en la cartera de consumo.}}
+
+La cartera de créditos comerciales del sistema bancario muestra un leve
+aumento de la morosidad desde octubre del 2019, en línea con la disminución
+de la actividad económica y el empeoramiento de la capacidad de pago de las
+empresas (tabla III.1). A nivel de sectores, no se aprecia una materialización de
+impago producto de la menor generación de ingresos de las firmas (gráfico
+III.7). El índice de stock de provisiones del sistema ---que considera una
+evaluación más prospectiva de la cartera-\/-- presenta un leve incremento desde
+el tercer trimestre del año pasado, pasando de 2,6\% en septiembre de 2019 a
+2,8\% en marzo de 2020.
+
+Índice de cuota impaga por sector económico (*)(porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-57-1.pdf}
+
+(*) El ICI considera los pagos atrasados desde 90 días hasta 3 años.
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+Los préstamos de consumo del sistema son los que mostraron un mayor
+deterioro. Desde octubre del año pasado aumentaron su morosidad de 90 días
+a 2,3\% de la cartera en marzo. Además, el sistema ha constituido mayores
+provisiones (específicas y adicionales) en más de 60pb, y ha materializado un
+mayor volumen de castigos en esta cartera (tabla III.1).
+
+Hacia adelante, si bien es probable que se acentúe este deterioro de cartera
+producto del menor crecimiento económico, algunas de las medidas tendientes
+a contener caídas de ingresos en hogares, reprogramar préstamos a hogares
+y empresas, o la extensión de los programas estatales de garantías, debiese
+mitigar su impacto (tabla I.3 y Capítulo II).
+
+\textbf{\emph{Se registró un aumento en la participación de depósitos de fondos mutuos (FM) en la estructura de pasivos de la banca y continuaron incrementándose las emisiones de bonos, especialmente en el mercado local.}}
+
+En la estructura de pasivos de la banca, creció la importancia relativa de
+depósitos a plazo en manos de Fondos Mutuos, especialmente en bancos de
+menor tamaño (gráfico III.8). En 2019, la emisión de un mayor volumen de
+instrumentos de deuda se vio beneficiada por las favorables condiciones de
+financiamiento, en particular en el mercado local. La mayor participación de
+bonos en la estructura de financiamiento ha favorecido la gestión de liquidez
+de la banca debido a la reducción en las brechas de plazos. Por otro lado, el
+aumento y volatilidad de los spreads a los que se transan estos instrumentos,
+desde fines del 2019, podría cambiar esta tendencia (Capítulo I). No obstante,
+el BCCh ha provisto de liquidez adicional en mercados clave, como a través
+de la compra de bonos bancarios o recompra de sus propios títulos, lo que
+contribuiría a mantener acotado el costo de fondeo (tabla I.3).
+
+Composición de los pasivos de la banca (*)(porcentaje de los pasivos)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-58-1.pdf}
+
+(*) Excluye bonos subordinados. Último dato corresponde a diciambre de 2019.
+Fuente: Banco Central de Chile en base a información de la CMF y el DCV.
+
+En tanto, la posición de liquidez del sistema continúa presentando holguras
+respecto a los límites regulatorios, a pesar de los episodios de tensión vividos en
+octubre del año pasado y marzo de este año. Las medidas del BCCh adoptadas
+a partir de noviembre último para mitigar los efectos de la mayor volatilidad
+en los mercados financieros, han contribuido a aminorar las restricciones de
+liquidez tanto en pesos como en dólares. Así, la razón de cobertura de liquidez,
+como los descalces de plazos residuales a 30 y 90 días, han presentado
+posiciones relativamente holgadas para las distintas entidades bancarias al
+cierre de este Informe (gráfico III.9). Sin embargo, el aumento de los retrasos e
+impagos, junto con las políticas de postergación del pago de cuotas de créditos,
+disminuiría los ingresos de la banca en el corto plazo, reduciendo su liquidez.
+Con todo, a fines de marzo de este año se flexibilizaron transitoriamente los
+mínimos regulatorios para la razón de cobertura de liquidez y descalce de
+plazos (tabla I.3).
+
+\textbf{\emph{Los indicadores de rentabilidad y solvencia del sistema bancario se han reducido.}}
+
+La rentabilidad anualizada del sistema bancario ha acentuado su caída desde
+el IEF anterior. Así, a marzo de este año la rentabilidad del capital (ROE) alcanzó
+11,7\%, mientras que la de los activos (ROA) se ubicó en 0,8\%. Esta caída en
+rentabilidad, observada desde septiembre del año pasado, se explica en parte
+por las mayores provisiones por riesgo de crédito, así como por la persistente
+tendencia a la baja del margen de intereses. Lo anterior, es parcialmente
+compensado por un incremento en el margen de reajustes, debido a niveles de
+inflación comparativamente más altos.
+
+Por su parte, el índice de adecuación de capital (IAC) del sistema se ha reducido
+desde el Informe anterior, manteniendo un nivel inferior a 13\% a enero de
+este año. En su evolución han influido factores como los movimientos del tipo
+de cambio ----dada la valoración de los activos en moneda extranjera de los
+bancos---- y los niveles de capital. Así, las holguras de capital para enfrentar
+distintos escenarios de tensión se mantienen acotadas. No obstante, bajo este
+contexto, algunos bancos han modificado sus políticas de reparto de dividendos
+o anunciado incrementos de capital extraordinarios.
+
+\hypertarget{FR}{%
+\section*{FACTORES DE RIESGO}\label{FR}}
+\addcontentsline{toc}{section}{FACTORES DE RIESGO}
+
+\textbf{\emph{La calidad de la cartera de crédito de los bancos podría deteriorarse significativamente si la desaceleración económica persiste más allá de lo esperado.}}
+
+Un deterioro del escenario macroeconómico más profundo y duradero que
+lo esperado podría reducir significativamente las ventas de las empresas,
+incrementando los incumplimientos que ya se han registrado en algunos
+sectores específicos. Asimismo, un deterioro mayor en el mercado laboral
+tendría un impacto directo en la cartera hipotecaria y de consumo de la banca,
+e indirecto a través del financiamiento bancario otorgado a los oferentes de
+crédito no bancario (OCNB).
+Por su parte, los resultados de la encuesta especial de percepción de negocios,
+realizada la tercera semana de marzo, muestran un deterioro importante de las
+perspectivas de las empresas. La gran mayoría de los encuestados cree que en
+los próximos meses el desempeño de sus negocios empeorará, principalmente
+debido a problemas de flujo de caja y dificultades para cobrar las facturas
+pendientes (Recuadro III.1, IPoM Marzo 2020).
+Las reprogramaciones que se han registrado desde abril tras la flexibilización
+de la normativa de la CMF, así como los préstamos bancarios que cuentan con
+
+Razón de cobertura de liquidez (*)(porcentaje de los egresos netos en 30 días)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-59-1.pdf}
+
+(*) Calculado sobre la base de información a nivel individual.
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+garantía estatal ---que también genera cambios en las condiciones de los otros
+créditos del deudor---, están contribuyendo a acotar el deterioro de las carteras
+de créditos.
+
+\textbf{\emph{El empeoramiento del escenario económico podría deteriorar las condiciones de financiamiento de la banca.}}
+
+La tensión de los mercados financieros afectó los spreads de los bonos
+corporativos y bancarios que crecieron más de 75pb en marzo y 40pb en el
+año. Si bien los spreads podrían comprimirse, dado el programa de compra de
+bonos, el mayor costo de financiamiento de los bancos a largo plazo podría
+limitar el flujo de operaciones de crédito a esos plazos, como, por ejemplo,
+las colocaciones destinadas al financiamiento de viviendas. Por su parte,
+respecto del financiamiento de corto plazo, se observó un alza en el spread
+DAP-SWAP en lo más reciente, lo que sugería que las condiciones de liquidez
+de los depósitos bancarios habían disminuido. Sin embargo, dicho incremento
+se revirtió por una disminución en las tasas de referencia.
+
+\textbf{\emph{La incidencia de eventos de riesgo operacional en la industria bancaria ha aumentado en los últimos meses.}}
+
+Las pérdidas por eventos de riesgo operacional, son de un orden de magnitud
+inferior a las de crédito, pero potencialmente significativas para la banca,
+especialmente aquellas asociadas a fraudes, gestión de procesos, y más
+recientemente, daños a activos físicos por US\$16,5 millones (gráfico III.10).
+Estas pérdidas aumentaron en el último trimestre del año pasado, por lo que
+es relevante que la banca gestione adecuadamente este tipo de riesgos, con
+el objetivo de mantener la continuidad de sus procesos y mitigar eventos de
+eventos de disrupción operacional.
+
+Pérdidas mensuales por eventos de riesgo operacional(millones de dólares)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-60-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+\hypertarget{EES}{%
+\section*{EVALUACIÓN DE LOS ESCENARIOS DE ESTRÉS2/}\label{EES}}
+\addcontentsline{toc}{section}{EVALUACIÓN DE LOS ESCENARIOS DE ESTRÉS2/}
+
+\&\textbf{\emph{Pese a que el sistema bancario mantiene solvencia suficiente para absorber los efectos de la materialización de escenarios de tensión, se han reducido las holguras de capital.}}
+
+Los ejercicios de tensión evalúan el impacto de los riesgos de crédito y
+mercado en escenarios de estrés extremos, pero plausibles. Estos se basan
+en la información macro-financiera y datos contables del sistema bancario
+a diciembre de 2019. Para ello, se considera un escenario severo con una
+contracción abrupta de la actividad, pero con una recuperación similar a las
+observadas durante periodos previos de fragilidad financiera.
+Cabe destacar que las pruebas de tensión son herramientas de análisis que
+contribuyen a identificar debilidades y fortalezas financieras del sistema en un
+determinado momento del tiempo. Dada su naturaleza parcial, no entregan
+necesariamente la totalidad de los efectos de los escenarios aplicados. Por lo
+tanto, no deben considerarse como ejercicios de proyección. Esta herramienta
+estima el riesgo de crédito mediante un modelo que relaciona el gasto en
+provisiones de las colocaciones, las que reflejan el costo por el incumplimiento
+de pagos de las carteras de los bancos, con factores macro-financieros, tales
+como la actividad económica y las tasas de interés. En tanto, el cálculo del
+riesgo de mercado considera dos tipos de exposición: moneda y tasas de interés
+(separados en valoración y repricing).
+
+Crecimiento anual del PIB (*)(datos trimestrales, porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-61-1.pdf}
+
+(*) Datos desestacionalizados. El área sombreada señala la ventana del ejercicio..
+Fuente: Banco Central de Chile.
+
+Bajo un escenario de tensión severo, la actividad llegaría a -9,4\% anual en
+el trimestre más crítico, que luego convergería en el mediano plazo a un
+crecimiento de 1,4\% durante el 2022, superando de este modo a los episodios
+pasados de fragilidad financiera relevantes (gráfico III.11). Además, considera
+una depreciación del tipo de cambio y un desplazamiento de las curvas de
+rendimiento spot y forward con un aumento de 300pb para la tasa de interés
+de corto plazo y de 100pb para la de largo plazo. Adicionalmente, el riesgo de
+moneda considera la volatilidad del tipo de cambio3/ que corresponde a una variación de 16\%.
+Dada la coyuntura actual, el escenario central de la proyección del PIB
+presentado en el IPoM de marzo de este año, mostraría una contracción
+significativa y llegaría a -7,1\%, lo cual se acerca a trayectorias de escenarios
+de estrés severo de ejercicios anteriores (gráfico III.11). Por ello, en esta versión
+del ejercicio analizamos la resiliencia del sistema considerando esta trayectoria
+(escenario base).
+
+\textbf{\emph{Los resultados indican que riesgos de crédito y de mercado se incrementan significativamente en los escenarios de tensión.}}
+
+El riesgo de crédito estimado en los ejercicios ha mostrado una tendencia
+creciente en los últimos Informes, debido principalmente a la desaceleración de
+la actividad (gráfico III.12). Asimismo, los indicadores de la calidad de la cartera
+de colocaciones se han deteriorado en todos los segmentos, especialmente
+las provisiones. Así, el ejercicio de tensión estima una pérdida potencial de las
+colocaciones totales bajo un escenario severo correspondiente a 21,9\% del
+capital del sistema comparado con el 19,5\% del ejercicio anterior4 / (tabla III.2).
+De la misma forma, el riesgo de crédito en el escenario base sería de 7,8\% del
+capital. En particular, se aprecia que el nivel de riesgo es moderado en relación
+al del escenario severo del ejercicio actual y sus predecesores, debido a que
+considera una recuperación más rápida.
+
+Riesgos de mercado(porcentaje del capital básico)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-62-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de la CMF.
+
+Respecto del riesgo de mercado, este se reduce en su componente riesgo de
+repricing, aunque aumenta significativamente en el de valoración. En tanto, el riesgo
+de moneda aumenta debido al mayor descalce en moneda extranjera5/. Si bien el riesgo de mercado es acotado en comparación al riesgo de crédito, este puede llegar a representar más de 8\% del capital para algunos bancos (gráfico III.13).
+
+\textbf{\emph{Los menores niveles de rentabilidad y capital al cierre del 2019, sumados al mayor riesgo, han reducido las holguras del sistema.}}
+
+Al comparar con los resultados del ejercicio previo (junio de 2019), en esta
+versión se aprecia una disminución de la rentabilidad inicial y de los márgenes,
+al igual que en el nivel de capital, siendo el ROE 1,5pp menor (11,9 versus
+13,4\%) y el IAC 0,4pp menor (12,7 versus 13,1\%). Considerando lo anterior,
+el ejercicio muestra que el sistema disminuiría su rentabilidad bajo el escenario
+base, y tendría un mayor nivel de pérdidas bajo el escenario de tensión severo.
+Así, el ROE del sistema en el escenario base disminuiría a 4,9\%, mientras que
+en el severo se torna negativo y alcanza -11,3\% del capital básico. Al interior
+del sistema, bancos que en conjunto representan cerca de 89\% del capital
+básico del sistema exhibirían rentabilidades negativas en el escenario de estrés
+severo (73\% en el ejercicio del IEF anterior), mientras que 24\% lo haría bajo el
+escenario base (gráfico III.14).
+
+Impacto de distintos escenarios sobre el ROE (*)(utilidad sobre capital básico, porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-63-1.pdf}
+
+(*) Las cifras están ponderadas por el capital básico de cada institución. Los cálculos no consideran la banca de tesorería y comercio exterior así como tampoco bancos de consumo que han salido del sistema.Los mínimos corresponden al percentil 1
+Fuente: Banco Central de Chile en base a información de la SBIF.
+
+En tanto, la solvencia bajo el escenario de estrés se reduce respecto del ejercicio
+anterior y la dispersión en relación a su distribución inicial se incrementa, con
+un sesgo a menores niveles de capital (gráfico III.15). Lo anterior obedece a los
+menores niveles iniciales de capital de los bancos más expuestos a los riesgos del
+escenario de tensión. El resultado muestra niveles de IAC bajo el escenario base
+significativamente menores que en el inicial, aunque superiores al del escenario
+severo. El conjunto de bancos que mantienen un IAC sobre 10\% bajo el escenario
+base es de 71\%, similar a lo registrado por el escenario severo en ejercicio pasados
+(gráfico III.16). En tanto, bajo el escenario severo, se reduce a 37\% de los activos
+del sistema, similar al 38\% del ejercicio anterior. Así, las holguras de capital del
+sistema continúan con una tendencia a la baja, lo que reduce la capacidad de
+los bancos para enfrentar una profundización y prolongación del escenario de
+tensión (gráfico III.17). Cabe señalar que las holguras bajo el escenario base son
+mayores que en el escenario severo. Este resultado asume una trayectoria del PIB
+en que la implementación de las medidas de política permiten mitigar el impacto
+de la crisis sobre la actividad, a través de una dinámica del crédito que contribuye
+a que empresas y hogares superen restricciones de liquidez, sin que se genere un
+aumento drástico del riesgo de crédito (tabla I.3).
+
+Impacto de distintos escenarios de estrés sobre IAC (*)(patrimonio efectivo sobre activos ponderados por riesgo)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-64-1.pdf}
+
+(*) Cifras ponderadas por el capital básico de cada institución. Los cálculos no consideran la banca de tesorería y comercio exterior así como tampoco bancos de consumo que han salido del sistema.
+Fuente: Banco Central de Chile en base a información de la SBIF.
+
+Bancos con IAC igual o superior al 10\% bajo escenario de estrés severo(*)(porcentaje de participación de activos)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-65-1.pdf}
+
+(*) Resultados de los ejercicios de tensión presentados en IEF anteriores. La letra B representa el escenario base.
+Fuente: Banco Central de Chile en base a información de la SBIF.
+
+Holgura de capital bajo escenario de estrés severo (*)(porcentaje de activos ponderados por riesgo)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-66-1.pdf}
+
+(*) Exceso de patrimonio efectivo sobre el minimo regularorio. Considera los límites particulares de cada banco. Letra B representa el escenario base.
+Fuente: Banco Central de Chile en base a información de la SBIF.
+
+\hypertarget{ENB}{%
+\section*{ENTIDADES NO BANCARIAS}\label{ENB}}
+\addcontentsline{toc}{section}{ENTIDADES NO BANCARIAS}
+
+Los oferentes de crédito no bancario (OCNB) otorgan préstamos a hogares y
+empresas. Estas entidades incluyen a las sociedades de apoyo al giro bancarias
+(SAG), las casas comerciales (CC), cajas de compensación y asignación familiar
+(CCAF), cooperativas de ahorro y crédito (CAC), y entidades que otorgan
+factoring y leasing (FyL) además de crédito automotriz
+
+\textbf{\emph{Los OCNB redujeron sus tasas de crecimiento en el segmento de consumo, aunque éstas continúan siendo superiores a las de la banca.}}
+
+Los oferentes no bancarios han reducido su dinamismo desde el segundo
+semestre del año pasado, creciendo 6,6\% real anual en el cuarto trimestre de
+2019 (12,3\% en el primero). No obstante, la mayoría de los OCNB redujo su
+contribución al crecimiento de la deuda en 2019, especialmente las empresas
+automotrices y SAG (gráfico III.18). Las colocaciones de estos oferentes en su
+conjunto representan más de un 60\% del mercado de créditos de consumo
+de la banca. A diciembre de 2019, las administradoras de tarjetas de crédito
+asociadas a CC y constituidas como sociedades de apoyo al giro bancario (SAG)
+representaban un 23,5\%, automotrices un 13,2\%, las CCAF un 12,4\%, las
+CAC un 6,9\%, y FyL 2,5\% (anexo estadístico).
+
+Contribución al crecimiento de colocaciones de los OCNB (*)(variación real anual, porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-67-1.pdf}
+
+Fuente: Banco Central de Chile en base a información de la CMF y la SUSESO.
+
+En cuanto a la morosidad del portafolio de créditos de consumo, no se observan
+cambios significativos desde el IEF anterior, excepto un incremento en la mora
+de las empresas que otorgan créditos automotrices (grafico III.19). Por otro
+lado, la rentabilidad de los activos de los OCNB muestra un comportamiento
+mixto. En tanto, los niveles de apalancamiento de los OCNB se mantuvieron
+estables en el último año, excepto para las CC que muestran una reducción
+relativa de su capital respecto de sus activos (tabla III.3).
+
+Mora 90-180 días (*)(porcentaje de las colocaciones)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-68-1.pdf}
+
+(*) Se considera la morosidad entre 90 y 180 días, excepto para las CCAF.
+Fuente: Banco Central de Chile en base a información de la CMF y SUSESO.
+
+En resumen, desde el IEF anterior aumentó la relevancia de los OCNB en la
+deuda de los hogares en un contexto de ausencia de información consolidada,
+a pesar de la integración del retail financiero a la banca. Desde fines del
+2015, la exposición indirecta de la banca a los hogares a través de créditos
+comerciales a OCNB se ha mantenido en torno a 2\% de los activos de la banca
+(grafico III.20), equivalente a 21\% de su patrimonio a diciembre de 2019. En
+la actual coyuntura, cobra especial relevancia proveer mecanismos para que
+algunos de estos oferentes dispongan de financiamiento, para que a su vez
+puedan extenderlo a sus deudores.
+
+Exposición de la banca a segmento de consumo (*)(porcentaje de activos del sistema)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-69-1.pdf}
+
+(*) Exposición directa incluye créditos de consumo a hogares. Exposición indirecta considera créditos comerciales de la banca extendidos a CC, FyL. CCAF y CAC, donde FyL incluye segmento automotriz.
+Fuente: Banco Central de Chile en base a información de la CMF y la SUSESO.
+
+\hypertarget{R3}{%
+\section*{Recuadro III.1}\label{R3}}
+\addcontentsline{toc}{section}{Recuadro III.1}
+
+\hypertarget{R3.1}{%
+\subsection*{\texorpdfstring{\textbf{FACILIDAD DE CRÉDITO CONDICIONAL AL INCREMENTO DE LAS COLOCACIONES}}{FACILIDAD DE CRÉDITO CONDICIONAL AL INCREMENTO DE LAS COLOCACIONES}}\label{R3.1}}
+\addcontentsline{toc}{subsection}{\textbf{FACILIDAD DE CRÉDITO CONDICIONAL AL INCREMENTO DE LAS COLOCACIONES}}
+
+\hypertarget{R3.2}{%
+\subsubsection*{\texorpdfstring{\textbf{Introducción}}{Introducción}}\label{R3.2}}
+\addcontentsline{toc}{subsubsection}{\textbf{Introducción}}
+
+En el marco de las medidas que el BCCh ha dispuesto para
+enfrentar el impacto de los shocks a los que se ha visto expuesta
+la economía chilena, el 16 de marzo, luego de una Reunión de
+Política Monetaria extraordinaria, se anunció la Facilidad de
+Crédito Condicional al Incremento de las Colocaciones (FCIC).
+Esta corresponde a una línea financiera especial abierta a los
+bancos, con el objetivo de que estos continúen financiando
+créditos a hogares y empresas. Cabe señalar que la efectividad
+de la FCIC depende de interacción con otras medidas, como
+el aumento de recursos para garantías estatales (FOGAPE y
+FOGAIN), las exenciones transitorias de límites de liquidez y la
+flexibilización en normas de provisiones, implementadas por el
+Ministerio de Hacienda, el BCCh y la CMF, respectivamente.
+Esta facilidad puede ser retirada a través de una operación
+similar a un REPO a cuatro años, es decir su utilización se
+respalda con colaterales elegibles. Entre estos están: bonos del
+BCCh, del gobierno y privados (bancarios y corporativos) y, más
+recientemente, créditos comerciales de la cartera de evaluación
+individual y que sean clasificados como de alta calidad crediticia.
+También se puede acceder a los recursos destinados a la FCIC a
+través de la Línea de Crédito de Liquidez (LCL), cuyo límite es el
+encaje en moneda nacional.
+Para definir el tamaño de la FCIC por banco, se considera una
+cartera base, la que corresponde a la suma de las colocaciones
+comerciales y de consumo al cierre de febrero de 2020. Con esta
+se calcula, para cada institución, una línea inicial y otra adicional.
+La primera corresponde a 3\% de la cartera base, equivalente a
+US\$4.800 millones, estando disponible para todos los bancos
+participantes durante finales de marzo. Por su parte, la línea
+adicional puede alcanzar hasta 12\% de dicha cartera base,
+equivalente a US\$19.200 millones, y su disponibilidad depende
+de dos factores: crecimiento de la cartera base y focalización
+de créditos hacia empresas de menor tamaño. Estos se miden,
+respectivamente, como la variación porcentual del stock de la
+cartera base desde el 16 de marzo (INC) y como el porcentaje del
+flujo de colocaciones a empresas con ventas anuales inferiores a
+UF 100 mil (ENF). Así cada banco puede acceder, con cargo a la
+línea adicional, a (INC + 1\%)*(ENF + 20\%) de la cartera base,
+siempre que el total de giros sea inferior al monto máximo de
+esta línea (12\%).
+
+\hypertarget{R3.3}{%
+\subsubsection*{\texorpdfstring{\textbf{Resultados}}{Resultados}}\label{R3.3}}
+\addcontentsline{toc}{subsubsection}{\textbf{Resultados}}
+
+Hasta el 11 de mayo 13 bancos habían hecho uso de la facilidad,
+siendo entregados por esta vía un total de US\$13.896 millones.
+Este monto ha sido retirado de manera importante a través de
+la LCL. En el caso de los retiros con respaldo de colaterales, se
+han utilizado principalmente instrumentos del BCCh y bonos
+corporativos.
+
+Las colocaciones de la cartera base han aumentado
+significativamente desde la fecha del anuncio de la FCIC. En
+efecto, hasta el 9 de abril los bancos reportaron que dichas
+colocaciones tuvieron un crecimiento de 38,2\%, en términos
+nominales y anualizado. Si bien esta cifra se ha moderado en lo
+más reciente, todavía se mantiene relativamente alta, alcanzando
+al cierre de abril un 32,5\% (gráfico III.21). El incremento de las
+colocaciones de la cartera base proviene exclusivamente de los
+créditos comerciales, entre estos destaca el crecimiento de las
+líneas de crédito. Respecto de la focalización del crédito hacia
+empresas de menor tamaño, durante la primera quincena ---
+entre el 15 de marzo y el 9 de abril--- los bancos reportaron
+que 16\% de los flujos de colocaciones fueron otorgados a este
+tipo de firmas, cifra que en lo más reciente se ha incrementado
+sobre 20\%.
+
+Crecimiento colocaciones y focalización del crédito(porcentaje)
+
+\includegraphics{IEF_files/figure-latex/unnamed-chunk-70-1.pdf}
+
+Fuente: Banco Central de Chile en base a información del formulario F05.
+
+\hypertarget{R3.4}{%
+\subsubsection*{\texorpdfstring{\textbf{Comentarios finales}}{Comentarios finales}}\label{R3.4}}
+\addcontentsline{toc}{subsubsection}{\textbf{Comentarios finales}}
+
+La facilidad extraordinaria recientemente implementada por el
+BCCh ha tenido amplio uso por parte de la banca y se espera
+que esta dinámica continúe. Esto porque, recientemente otras
+autoridades han implementado políticas adicionales al fomento
+del crédito. Estas medidas, en conjunto con la FCIC, contribuirán
+a la provisión de crédito durante la emergencia sanitaria. Con
+ello se busca que un problema temporal de liquidez, en hogares
+y empresas, se logre superar sin que esto implique disrupciones
+permanentes.
+
+\citet{Book}\{xie2015,
+title = \{Dynamic Documents with \{R\} and knitr\},
+author = \{Yihui Xie\},
+publisher = \{Chapman and Hall/CRC\},
+address = \{Boca Raton, Florida\},
+year = \{2015\},
+edition = \{2nd\},
+note = \{ISBN 978-1498716963\},
+url = \{\url{http://yihui.org/knitr/}\},
+\}
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}
